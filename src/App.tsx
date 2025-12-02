@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import AllTools from "./pages/AllTools";
 import NotFound from "./pages/NotFound";
 
 // Tool Pages
@@ -20,6 +21,10 @@ import TextCleaner from "./pages/tools/TextCleaner";
 import AgeCalculator from "./pages/tools/AgeCalculator";
 import EMICalculator from "./pages/tools/EMICalculator";
 import TipCalculator from "./pages/tools/TipCalculator";
+import PDFMerge from "./pages/tools/PDFMerge";
+import PDFSplit from "./pages/tools/PDFSplit";
+import ImageCompressor from "./pages/tools/ImageCompressor";
+import ImageResizer from "./pages/tools/ImageResizer";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +36,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/tools" element={<AllTools />} />
           
           {/* Text Tools */}
           <Route path="/tools/word-counter" element={<WordCounter />} />
@@ -46,6 +52,14 @@ const App = () => (
           <Route path="/tools/age-calculator" element={<AgeCalculator />} />
           <Route path="/tools/emi-calculator" element={<EMICalculator />} />
           <Route path="/tools/tip-calculator" element={<TipCalculator />} />
+          
+          {/* PDF Tools */}
+          <Route path="/tools/pdf-merge" element={<PDFMerge />} />
+          <Route path="/tools/pdf-split" element={<PDFSplit />} />
+          
+          {/* Image Tools */}
+          <Route path="/tools/image-compressor" element={<ImageCompressor />} />
+          <Route path="/tools/image-resizer" element={<ImageResizer />} />
           
           {/* Misc Tools */}
           <Route path="/tools/password-generator" element={<PasswordGenerator />} />

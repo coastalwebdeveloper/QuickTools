@@ -68,7 +68,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  to="/#pdf"
+                  to="/tools"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  All Tools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/tools"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
                   PDF Tools
@@ -76,7 +84,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/#image"
+                  to="/tools"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
                   Image Tools
@@ -84,18 +92,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/#converter"
+                  to="/tools"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
                   Converters
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/#calculator"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Calculators
                 </Link>
               </li>
             </ul>
