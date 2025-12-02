@@ -2,13 +2,50 @@ import { useState } from "react";
 import { Scissors, Upload, Download } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
 import { Button } from "@/components/ui/button";
+import { PDFDocument } from "pdf-lib";
+import { toast } from "sonner";
 
 const PDFSplit = () => {
   const [file, setFile] = useState<File | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0]);
+    }
+  };
+
+  const splitPDF = async () => {
+    if (!file) return;
+
+    setIsProcessing(true);
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await PDFDocument.load(arrayBuffer);
+      const pageCount = pdf.getPageCount();
+      
+      for (let i = 0; i < pageCount; i++) {
+        const newPdf = await PDFDocument.create();
+        const [copiedPage] = await newPdf.copyPages(pdf, [i]);
+        newPdf.addPage(copiedPage);
+        
+        const pdfBytes = await newPdf.save();
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `page-${i + 1}.pdf`;
+        a.click();
+        
+        URL.revokeObjectURL(url);
+      }
+      
+      toast.success(`PDF split into ${pageCount} pages!`);
+    } catch (error) {
+      toast.error("Error splitting PDF");
+    } finally {
+      setIsProcessing(false);
     }
   };
 
@@ -55,9 +92,9 @@ const PDFSplit = () => {
               <span className="flex-1">{file.name}</span>
               <span className="text-sm text-gray-500">{(file.size / 1024 / 1024).toFixed(2)} MB</span>
             </div>
-            <Button className="w-full" disabled>
+            <Button className="w-full" onClick={splitPDF} disabled={isProcessing || !file}>
               <Download className="w-4 h-4 mr-2" />
-              Split PDF (Coming Soon)
+              {isProcessing ? "Splitting..." : "Split PDF"}
             </Button>
           </div>
         )}

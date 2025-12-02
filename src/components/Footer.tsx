@@ -103,24 +103,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-400 text-sm flex items-center gap-2">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> for productivity
+        <div className="mt-12 pt-8 border-t border-gray-800 text-center">
+          <p className="text-gray-400 text-sm">
+            © 2025 QuickTools. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <a
-              href="#"
-              className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800"
-            >
-              <Twitter className="w-5 h-5" />
-            </a>
-          </div>
         </div>
       </div>
     </footer>

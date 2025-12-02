@@ -2,13 +2,51 @@ import { useState } from "react";
 import { FileText, Upload, Download } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
 import { Button } from "@/components/ui/button";
+import { PDFDocument } from "pdf-lib";
+import { toast } from "sonner";
 
 const PDFMerge = () => {
   const [files, setFiles] = useState<File[]>([]);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setFiles(Array.from(e.target.files));
+    }
+  };
+
+  const mergePDFs = async () => {
+    if (files.length < 2) {
+      toast.error("Please select at least 2 PDF files");
+      return;
+    }
+
+    setIsProcessing(true);
+    try {
+      const mergedPdf = await PDFDocument.create();
+      
+      for (const file of files) {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await PDFDocument.load(arrayBuffer);
+        const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+        copiedPages.forEach((page) => mergedPdf.addPage(page));
+      }
+      
+      const pdfBytes = await mergedPdf.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'merged.pdf';
+      a.click();
+      
+      URL.revokeObjectURL(url);
+      toast.success("PDFs merged successfully!");
+    } catch (error) {
+      toast.error("Error merging PDFs");
+    } finally {
+      setIsProcessing(false);
     }
   };
 
@@ -60,9 +98,9 @@ const PDFMerge = () => {
                 </div>
               ))}
             </div>
-            <Button className="w-full" disabled>
+            <Button className="w-full" onClick={mergePDFs} disabled={isProcessing || files.length < 2}>
               <Download className="w-4 h-4 mr-2" />
-              Merge PDFs (Coming Soon)
+              {isProcessing ? "Merging..." : "Merge PDFs"}
             </Button>
           </div>
         )}

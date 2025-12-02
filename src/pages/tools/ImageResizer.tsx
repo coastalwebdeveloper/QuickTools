@@ -3,17 +3,21 @@ import { Maximize2, Upload, Download } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
 
 const ImageResizer = () => {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string>("");
   const [width, setWidth] = useState<number>(800);
   const [height, setHeight] = useState<number>(600);
+  const [resizedImage, setResizedImage] = useState<string>("");
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0];
       setFile(selectedFile);
+      setResizedImage("");
       
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -21,6 +25,42 @@ const ImageResizer = () => {
       };
       reader.readAsDataURL(selectedFile);
     }
+  };
+
+  const resizeImage = async () => {
+    if (!file) return;
+
+    setIsProcessing(true);
+    try {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      
+      img.onload = () => {
+        canvas.width = width;
+        canvas.height = height;
+        ctx?.drawImage(img, 0, 0, width, height);
+        
+        const resizedDataUrl = canvas.toDataURL('image/jpeg', 0.9);
+        setResizedImage(resizedDataUrl);
+        toast.success("Image resized successfully!");
+        setIsProcessing(false);
+      };
+      
+      img.src = preview;
+    } catch (error) {
+      toast.error("Error resizing image");
+      setIsProcessing(false);
+    }
+  };
+
+  const downloadResized = () => {
+    if (!resizedImage) return;
+    
+    const a = document.createElement('a');
+    a.href = resizedImage;
+    a.download = `resized-${width}x${height}-${file?.name || 'image.jpg'}`;
+    a.click();
   };
 
   return (
@@ -95,17 +135,29 @@ const ImageResizer = () => {
                 </div>
                 <div className="space-y-2">
                   <p className="text-sm font-medium">Resized ({width}x{height})</p>
-                  <div className="w-full h-48 bg-gray-100 dark:bg-gray-800 rounded-lg border flex items-center justify-center">
-                    <p className="text-gray-500">Preview after resize</p>
-                  </div>
+                  {resizedImage ? (
+                    <img src={resizedImage} alt="Resized" className="w-full h-48 object-cover rounded-lg border" />
+                  ) : (
+                    <div className="w-full h-48 bg-gray-100 dark:bg-gray-800 rounded-lg border flex items-center justify-center">
+                      <p className="text-gray-500">Preview after resize</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
 
-            <Button className="w-full" disabled>
-              <Download className="w-4 h-4 mr-2" />
-              Resize Image (Coming Soon)
-            </Button>
+            <div className="flex gap-2">
+              <Button className="flex-1" onClick={resizeImage} disabled={isProcessing || !file}>
+                <Maximize2 className="w-4 h-4 mr-2" />
+                {isProcessing ? "Resizing..." : "Resize Image"}
+              </Button>
+              {resizedImage && (
+                <Button onClick={downloadResized} variant="outline">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download
+                </Button>
+              )}
+            </div>
           </div>
         )}
       </div>
