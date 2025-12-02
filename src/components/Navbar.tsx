@@ -23,9 +23,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="p-2 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600">
-              <Settings className="w-6 h-6 text-white" />
-            </div>
+            <img src="/QuickTools_Logo.png" alt="QuickTools" className="w-10 h-10" />
             <span className="font-bold text-2xl">
               <span className="text-gray-900 dark:text-white">Quick</span>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Tools</span>
