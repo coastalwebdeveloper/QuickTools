@@ -13,7 +13,7 @@
     <!-- Primary SEO -->
     <title>QuickTools Online - Free PDF, Image, Text, Converter & Calculator Tools</title>
     <meta name="description" content="QuickTools Online offers 25+ free browser-based tools including PDF merge/split, image compressor/resizer, word counter, text cleaner, password generator, BMI calculator, QR generator, unit converter, EMI calculator, and more. Fast, secure, no uploads required." />
-    <meta name="keywords" content="free online tools, PDF tools, PDF merge, PDF split, image compressor, image resizer, word counter, password generator, QR generator, text tools, calculators, converters, browser tools, secure tools, offline tools" />
+    <meta name="keywords" content="free online tools, PDF tools, PDF merge, PDF split, image compressor, image resizer, word counter, password generator, QR generator, text tools, calculators, converters, browser tools" />
     <meta name="author" content="QuickTools Online" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.quicktools.website" />
@@ -29,7 +29,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="QuickTools Online - Free PDF, Image, Text & Converter Tools" />
-    <meta name="twitter:description" content="Use free tools for PDF merging, image compression, text manipulation, and calculations. 100% browser-based and secure." />
+    <meta name="twitter:description" content="Free tools for PDF merging, image compression, text manipulation, and calculators. 100% browser-based and secure." />
     <meta name="twitter:image" content="/QuickTools_Logo.png" />
 
     <!-- Google Verification -->
@@ -52,7 +52,7 @@
       "name": "QuickTools Online",
       "url": "https://www.quicktools.website",
       "applicationCategory": "Utility",
-      "description": "Free online tools for PDF editing, image processing, text utilities, converters, and calculators. Secure and browser-based.",
+      "description": "Free online tools for PDF editing, image processing, text utilities, converters, and calculators.",
       "operatingSystem": "All",
       "offers": {
         "@type": "Offer",
@@ -81,7 +81,7 @@
           "name": "Do I need to upload files?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. All PDF, image, and text processing happens locally in your browser for maximum privacy and security."
+            "text": "No. All PDF, image, and text processing happens locally in your browser for maximum privacy."
           }
         },
         {
@@ -98,11 +98,9 @@
   </head>
 
   <body>
-    <div id="root"></div>
 
-    <!-- Visible SEO Content -->
-    <main style="max-width:900px;margin:auto;padding:20px;">
-      
+    <!-- Hidden SEO Content for Google -->
+    <div id="seo-content" style="display:none;">
       <h1>QuickTools — Free Online PDF, Image, Text & Calculator Tools</h1>
 
       <p>
@@ -129,11 +127,13 @@
         ✔ Browser-based & secure  
         ✔ Fast and lightweight  
         ✔ Mobile friendly  
-        ✔ 25+ daily-use tools  
+        ✔ 25+ daily-use tools
       </p>
+    </div>
 
-    </main>
-
+    <!-- React App -->
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
   </body>
 </html>
