@@ -68,6 +68,7 @@ const WordCounter = () => {
       description="Count words, characters, sentences, and paragraphs in your text"
       icon={Hash}
       iconColor="bg-purple-500/10 text-purple-600 dark:text-purple-400"
+      toolId="word-counter"
       tips={[
         "Paste or type your text to see instant statistics",
         "Reading time is calculated at 200 words per minute",
