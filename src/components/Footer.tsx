@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src="/QuickTools_Logo.svg" alt="QuickTools" className="w-10 h-10" />
+              <img src="/QuickTools_Logo.png" alt="QuickTools" className="w-10 h-10" />
               <span className="font-bold text-2xl">
                 <span className="text-white">Quick</span>
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Tools</span>
