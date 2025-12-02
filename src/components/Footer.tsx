@@ -1,0 +1,130 @@
+import { Link } from "react-router-dom";
+import { Settings, Github, Twitter, Heart } from "lucide-react";
+
+const Footer = () => {
+  return (
+    <footer className="bg-gray-900 text-white">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="md:col-span-2">
+            <Link to="/" className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600">
+                <Settings className="w-6 h-6 text-white" />
+              </div>
+              <span className="font-bold text-2xl">
+                <span className="text-white">Quick</span>
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Tools</span>
+              </span>
+            </Link>
+            <p className="text-gray-300 max-w-md leading-relaxed">
+              Professional online tools for everyday tasks. Fast, secure, and completely free.
+              All processing happens in your browser - your privacy is guaranteed.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-semibold mb-4 text-white">Popular Tools</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  to="/tools/word-counter"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  Word Counter
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/tools/password-generator"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  Password Generator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/tools/qr-generator"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  QR Generator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/tools/color-converter"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  Color Converter
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Categories */}
+          <div>
+            <h4 className="font-semibold mb-4 text-white">Categories</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  to="/#pdf"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  PDF Tools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#image"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  Image Tools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#converter"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  Converters
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#calculator"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  Calculators
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-gray-400 text-sm flex items-center gap-2">
+            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> for productivity
+          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800"
+            >
+              <Twitter className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

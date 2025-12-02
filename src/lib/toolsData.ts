@@ -1,0 +1,227 @@
+import {
+  FileText,
+  Image,
+  Calculator,
+  Type,
+  RefreshCw,
+  QrCode,
+  Timer,
+  Lock,
+  Shuffle,
+  Scissors,
+  ImagePlus,
+  Minimize2,
+  Maximize2,
+  Scale,
+  Thermometer,
+  DollarSign,
+  Palette,
+  Hash,
+  Eraser,
+  ShieldCheck,
+  Calendar,
+  CreditCard,
+  Percent,
+  LucideIcon,
+} from "lucide-react";
+
+export interface Tool {
+  id: string;
+  name: string;
+  description: string;
+  icon: LucideIcon;
+  category: string;
+  path: string;
+  color: string;
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  icon: LucideIcon;
+  color: string;
+}
+
+export const categories: Category[] = [
+  { id: "pdf", name: "PDF Tools", icon: FileText, color: "from-red-500 to-orange-500" },
+  { id: "image", name: "Image Tools", icon: Image, color: "from-green-500 to-emerald-500" },
+  { id: "converter", name: "Converters", icon: RefreshCw, color: "from-blue-500 to-cyan-500" },
+  { id: "text", name: "Text Tools", icon: Type, color: "from-purple-500 to-pink-500" },
+  { id: "calculator", name: "Calculators", icon: Calculator, color: "from-amber-500 to-yellow-500" },
+  { id: "misc", name: "Other Tools", icon: Shuffle, color: "from-indigo-500 to-violet-500" },
+];
+
+export const tools: Tool[] = [
+  // PDF Tools
+  {
+    id: "pdf-merge",
+    name: "PDF Merger",
+    description: "Combine multiple PDF files into one document",
+    icon: FileText,
+    category: "pdf",
+    path: "/tools/pdf-merge",
+    color: "bg-red-500/10 text-red-600 dark:text-red-400",
+  },
+  {
+    id: "pdf-split",
+    name: "PDF Splitter",
+    description: "Split PDF documents into separate pages",
+    icon: Scissors,
+    category: "pdf",
+    path: "/tools/pdf-split",
+    color: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
+  },
+  // Image Tools
+  {
+    id: "image-compressor",
+    name: "Image Compressor",
+    description: "Reduce image file size while maintaining quality",
+    icon: Minimize2,
+    category: "image",
+    path: "/tools/image-compressor",
+    color: "bg-green-500/10 text-green-600 dark:text-green-400",
+  },
+  {
+    id: "image-resizer",
+    name: "Image Resizer",
+    description: "Resize images to any dimension",
+    icon: Maximize2,
+    category: "image",
+    path: "/tools/image-resizer",
+    color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  },
+  // Converters
+  {
+    id: "unit-converter",
+    name: "Unit Converter",
+    description: "Convert between different units of measurement",
+    icon: Scale,
+    category: "converter",
+    path: "/tools/unit-converter",
+    color: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  },
+  {
+    id: "color-converter",
+    name: "Color Converter",
+    description: "Convert colors between HEX, RGB, and HSL formats",
+    icon: Palette,
+    category: "converter",
+    path: "/tools/color-converter",
+    color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
+  },
+  // Text Tools
+  {
+    id: "word-counter",
+    name: "Word Counter",
+    description: "Count words, characters, sentences, and paragraphs",
+    icon: Hash,
+    category: "text",
+    path: "/tools/word-counter",
+    color: "bg-purple-500/10 text-purple-600 dark:text-purple-400",
+  },
+  {
+    id: "case-converter",
+    name: "Case Converter",
+    description: "Convert text between different cases",
+    icon: Type,
+    category: "text",
+    path: "/tools/case-converter",
+    color: "bg-pink-500/10 text-pink-600 dark:text-pink-400",
+  },
+  {
+    id: "text-cleaner",
+    name: "Text Cleaner",
+    description: "Remove extra spaces and clean up text",
+    icon: Eraser,
+    category: "text",
+    path: "/tools/text-cleaner",
+    color: "bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400",
+  },
+  // Calculators
+  {
+    id: "bmi-calculator",
+    name: "BMI Calculator",
+    description: "Calculate your Body Mass Index",
+    icon: Scale,
+    category: "calculator",
+    path: "/tools/bmi-calculator",
+    color: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+  },
+  {
+    id: "age-calculator",
+    name: "Age Calculator",
+    description: "Calculate exact age from date of birth",
+    icon: Calendar,
+    category: "calculator",
+    path: "/tools/age-calculator",
+    color: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400",
+  },
+  {
+    id: "emi-calculator",
+    name: "EMI Calculator",
+    description: "Calculate loan EMI and total interest",
+    icon: CreditCard,
+    category: "calculator",
+    path: "/tools/emi-calculator",
+    color: "bg-lime-500/10 text-lime-600 dark:text-lime-400",
+  },
+  {
+    id: "tip-calculator",
+    name: "Tip Calculator",
+    description: "Calculate tips and split bills easily",
+    icon: Percent,
+    category: "calculator",
+    path: "/tools/tip-calculator",
+    color: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
+  },
+  // Misc Tools
+  {
+    id: "qr-generator",
+    name: "QR Code Generator",
+    description: "Generate QR codes for any text or URL",
+    icon: QrCode,
+    category: "misc",
+    path: "/tools/qr-generator",
+    color: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
+  },
+  {
+    id: "password-generator",
+    name: "Password Generator",
+    description: "Generate strong, secure passwords",
+    icon: Lock,
+    category: "misc",
+    path: "/tools/password-generator",
+    color: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+  },
+  {
+    id: "stopwatch",
+    name: "Stopwatch & Timer",
+    description: "Stopwatch and countdown timer in one",
+    icon: Timer,
+    category: "misc",
+    path: "/tools/stopwatch",
+    color: "bg-rose-500/10 text-rose-600 dark:text-rose-400",
+  },
+  {
+    id: "random-number",
+    name: "Random Number Generator",
+    description: "Generate random numbers within a range",
+    icon: Shuffle,
+    category: "misc",
+    path: "/tools/random-number",
+    color: "bg-sky-500/10 text-sky-600 dark:text-sky-400",
+  },
+];
+
+export const getToolsByCategory = (categoryId: string): Tool[] => {
+  return tools.filter((tool) => tool.category === categoryId);
+};
+
+export const searchTools = (query: string): Tool[] => {
+  const lowerQuery = query.toLowerCase();
+  return tools.filter(
+    (tool) =>
+      tool.name.toLowerCase().includes(lowerQuery) ||
+      tool.description.toLowerCase().includes(lowerQuery)
+  );
+};
