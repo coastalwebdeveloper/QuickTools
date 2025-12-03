@@ -22,6 +22,10 @@ import {
   Calendar,
   CreditCard,
   Percent,
+  FileCode,
+  GitCompare,
+  Crop,
+  FileImage,
   LucideIcon,
 } from "lucide-react";
 
@@ -71,6 +75,15 @@ export const tools: Tool[] = [
     path: "/tools/pdf-split",
     color: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
   },
+  {
+    id: "pdf-to-images",
+    name: "PDF to Images",
+    description: "Convert PDF pages to image files",
+    icon: FileImage,
+    category: "pdf",
+    path: "/tools/pdf-to-images",
+    color: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+  },
   // Image Tools
   {
     id: "image-compressor",
@@ -89,6 +102,15 @@ export const tools: Tool[] = [
     category: "image",
     path: "/tools/image-resizer",
     color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  },
+  {
+    id: "image-cropper",
+    name: "Image Cropper",
+    description: "Crop and resize your images",
+    icon: Crop,
+    category: "image",
+    path: "/tools/image-cropper",
+    color: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
   },
   // Converters
   {
@@ -136,6 +158,15 @@ export const tools: Tool[] = [
     category: "text",
     path: "/tools/text-cleaner",
     color: "bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400",
+  },
+  {
+    id: "text-diff",
+    name: "Text Diff Checker",
+    description: "Compare two texts and highlight differences",
+    icon: GitCompare,
+    category: "text",
+    path: "/tools/text-diff",
+    color: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
   },
   // Calculators
   {
@@ -210,6 +241,15 @@ export const tools: Tool[] = [
     category: "misc",
     path: "/tools/random-number",
     color: "bg-sky-500/10 text-sky-600 dark:text-sky-400",
+  },
+  {
+    id: "base64-tool",
+    name: "Base64 Encoder/Decoder",
+    description: "Encode and decode text to/from Base64 format",
+    icon: FileCode,
+    category: "converter",
+    path: "/tools/base64-tool",
+    color: "bg-slate-500/10 text-slate-600 dark:text-slate-400",
   },
 ];
 

@@ -25,6 +25,10 @@ import PDFMerge from "./pages/tools/PDFMerge";
 import PDFSplit from "./pages/tools/PDFSplit";
 import ImageCompressor from "./pages/tools/ImageCompressor";
 import ImageResizer from "./pages/tools/ImageResizer";
+import ImageCropper from "./pages/tools/ImageCropper";
+import Base64Tool from "./pages/tools/Base64Tool";
+import TextDiff from "./pages/tools/TextDiff";
+import PDFToImages from "./pages/tools/PDFToImages";
 
 const queryClient = new QueryClient();
 
@@ -42,10 +46,12 @@ const App = () => (
           <Route path="/tools/word-counter" element={<WordCounter />} />
           <Route path="/tools/case-converter" element={<CaseConverter />} />
           <Route path="/tools/text-cleaner" element={<TextCleaner />} />
+          <Route path="/tools/text-diff" element={<TextDiff />} />
           
           {/* Converters */}
           <Route path="/tools/color-converter" element={<ColorConverter />} />
           <Route path="/tools/unit-converter" element={<UnitConverter />} />
+          <Route path="/tools/base64-tool" element={<Base64Tool />} />
           
           {/* Calculators */}
           <Route path="/tools/bmi-calculator" element={<BMICalculator />} />
@@ -56,10 +62,12 @@ const App = () => (
           {/* PDF Tools */}
           <Route path="/tools/pdf-merge" element={<PDFMerge />} />
           <Route path="/tools/pdf-split" element={<PDFSplit />} />
+          <Route path="/tools/pdf-to-images" element={<PDFToImages />} />
           
           {/* Image Tools */}
           <Route path="/tools/image-compressor" element={<ImageCompressor />} />
           <Route path="/tools/image-resizer" element={<ImageResizer />} />
+          <Route path="/tools/image-cropper" element={<ImageCropper />} />
           
           {/* Misc Tools */}
           <Route path="/tools/password-generator" element={<PasswordGenerator />} />
