@@ -70,6 +70,7 @@ const QRGenerator = () => {
       description="Generate QR codes for any text, URL, or data"
       icon={QrCode}
       iconColor="bg-indigo-500/10 text-indigo-600 dark:text-indigo-400"
+      toolId="qr-generator"
       tips={[
         "Enter any text, URL, email, or phone number",
         "QR codes are generated instantly as you type",
