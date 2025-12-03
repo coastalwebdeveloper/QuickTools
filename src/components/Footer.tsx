@@ -74,6 +74,14 @@ const Footer = () => {
               </li>
               <li>
                 <Link
+                  to="/feedback"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  User Feedback
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/tools"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
@@ -86,14 +94,6 @@ const Footer = () => {
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
                   Image Tools
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/tools"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Converters
                 </Link>
               </li>
             </ul>
