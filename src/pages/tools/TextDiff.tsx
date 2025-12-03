@@ -34,6 +34,7 @@ const TextDiff = () => {
       description="Compare two texts and highlight differences"
       icon={GitCompare}
       iconColor="bg-violet-500/10 text-violet-600 dark:text-violet-400"
+      toolId="text-diff"
       tips={["Compare code snippets or documents", "Line-by-line comparison"]}
     >
       <div className="space-y-4">

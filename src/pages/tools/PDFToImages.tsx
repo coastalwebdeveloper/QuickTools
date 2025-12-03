@@ -64,6 +64,7 @@ const PDFToImages = () => {
       description="Convert PDF pages to image files"
       icon={FileImage}
       iconColor="bg-amber-500/10 text-amber-600 dark:text-amber-400"
+      toolId="pdf-to-images"
       tips={["Convert each PDF page to an image", "Download images individually"]}
     >
       <div className="space-y-4">

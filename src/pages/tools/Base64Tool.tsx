@@ -35,6 +35,7 @@ const Base64Tool = () => {
       description="Encode and decode text to/from Base64 format"
       icon={FileCode}
       iconColor="bg-slate-500/10 text-slate-600 dark:text-slate-400"
+      toolId="base64-tool"
       tips={[
         "Base64 encoding converts binary data to ASCII text",
         "Commonly used for embedding images in HTML/CSS",

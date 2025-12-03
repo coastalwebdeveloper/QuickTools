@@ -50,6 +50,7 @@ const ImageCropper = () => {
       description="Crop and resize your images"
       icon={Crop}
       iconColor="bg-teal-500/10 text-teal-600 dark:text-teal-400"
+      toolId="image-cropper"
       tips={["Upload any image format", "Crop to square automatically"]}
     >
       <div className="space-y-4">
