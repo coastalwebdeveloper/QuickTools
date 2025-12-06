@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { FileCode, Copy, Check } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const Base64Tool = () => {
   const [input, setInput] = useState("");
@@ -91,6 +93,11 @@ const Base64Tool = () => {
             />
           </div>
         )}
+
+        <ToolContent
+          title="Base64 Encoder/Decoder"
+          {...toolContentData["base64-tool"]}
+        />
       </div>
     </ToolLayout>
   );

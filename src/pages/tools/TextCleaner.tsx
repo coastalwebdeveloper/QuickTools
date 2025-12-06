@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Eraser, Copy, Check } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const TextCleaner = () => {
   const [text, setText] = useState("");
@@ -121,6 +123,11 @@ const TextCleaner = () => {
             Clear All
           </Button>
         </div>
+
+        <ToolContent
+          title="Text Cleaner"
+          {...toolContentData["text-cleaner"]}
+        />
       </div>
     </ToolLayout>
   );

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { FileText, Upload, Download } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { PDFDocument } from "pdf-lib";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const PDFMerge = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -104,6 +106,11 @@ const PDFMerge = () => {
             </Button>
           </div>
         )}
+
+        <ToolContent
+          title="PDF Merger"
+          {...toolContentData["pdf-merge"]}
+        />
       </div>
     </ToolLayout>
   );

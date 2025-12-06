@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Shuffle, Copy, Check, History } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const RandomNumber = () => {
   const [min, setMin] = useState("1");
@@ -185,6 +187,11 @@ const RandomNumber = () => {
             </div>
           </div>
         )}
+
+        <ToolContent
+          title="Random Number Generator"
+          {...toolContentData["random-number"]}
+        />
       </div>
     </ToolLayout>
   );

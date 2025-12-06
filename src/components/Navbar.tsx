@@ -44,6 +44,18 @@ const Navbar = () => {
             >
               All Tools
             </Link>
+            <Link
+              to="/about"
+              className="font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className="font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Contact
+            </Link>
             <Button
               variant="ghost"
               size="icon"
@@ -104,6 +116,20 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 All Tools
+              </Link>
+              <Link
+                to="/about"
+                className="px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                to="/contact"
+                className="px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
               </Link>
             </div>
           </div>

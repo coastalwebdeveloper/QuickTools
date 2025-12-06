@@ -2,8 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { QrCode, Download, Copy, Check } from "lucide-react";
 import QRCode from "qrcode";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const QRGenerator = () => {
   const [text, setText] = useState("");
@@ -157,6 +159,11 @@ const QRGenerator = () => {
             ))}
           </div>
         </div>
+
+        <ToolContent
+          title="QR Code Generator"
+          {...toolContentData["qr-generator"]}
+        />
       </div>
     </ToolLayout>
   );

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Maximize2, Upload, Download } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const ImageResizer = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -160,6 +162,11 @@ const ImageResizer = () => {
             </div>
           </div>
         )}
+
+        <ToolContent
+          title="Image Resizer"
+          {...toolContentData["image-resizer"]}
+        />
       </div>
     </ToolLayout>
   );

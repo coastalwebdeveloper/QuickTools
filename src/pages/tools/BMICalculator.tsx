@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Scale } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
+import { toolContentData } from "@/lib/toolContent";
 
 const BMICalculator = () => {
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
@@ -194,6 +196,11 @@ const BMICalculator = () => {
             </div>
           </div>
         )}
+
+        <ToolContent
+          title="BMI Calculator"
+          {...toolContentData["bmi-calculator"]}
+        />
       </div>
     </ToolLayout>
   );

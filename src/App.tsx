@@ -7,6 +7,10 @@ import Index from "./pages/Index";
 import AllTools from "./pages/AllTools";
 import Feedback from "./pages/Feedback";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 // Tool Pages
 import WordCounter from "./pages/tools/WordCounter";
@@ -43,6 +47,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/tools" element={<AllTools />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           
           {/* Text Tools */}
           <Route path="/tools/word-counter" element={<WordCounter />} />

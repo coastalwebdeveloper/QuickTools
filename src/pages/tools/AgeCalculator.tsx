@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Calendar } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
+import { toolContentData } from "@/lib/toolContent";
 
 const AgeCalculator = () => {
   const [birthDate, setBirthDate] = useState("");
@@ -176,6 +178,11 @@ const AgeCalculator = () => {
             </div>
           </div>
         )}
+
+        <ToolContent
+          title="Age Calculator"
+          {...toolContentData["age-calculator"]}
+        />
       </div>
     </ToolLayout>
   );

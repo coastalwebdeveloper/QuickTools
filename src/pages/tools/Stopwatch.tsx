@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Timer, Play, Pause, RotateCcw, Flag } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
+import { toolContentData } from "@/lib/toolContent";
 
 const Stopwatch = () => {
   const [mode, setMode] = useState<"stopwatch" | "timer">("stopwatch");
@@ -276,6 +278,11 @@ const Stopwatch = () => {
             </div>
           </div>
         )}
+
+        <ToolContent
+          title="Stopwatch & Timer"
+          {...toolContentData["stopwatch"]}
+        />
       </div>
     </ToolLayout>
   );

@@ -1,8 +1,10 @@
 import { useState, useMemo } from "react";
 import { Hash, Copy, Check } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const WordCounter = () => {
   const [text, setText] = useState("");
@@ -125,6 +127,11 @@ const WordCounter = () => {
             Clear Text
           </Button>
         </div>
+
+        <ToolContent
+          title="Word Counter"
+          {...toolContentData["word-counter"]}
+        />
       </div>
     </ToolLayout>
   );

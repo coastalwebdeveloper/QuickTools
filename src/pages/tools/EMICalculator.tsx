@@ -1,8 +1,10 @@
 import { useState, useMemo } from "react";
 import { CreditCard } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
+import { toolContentData } from "@/lib/toolContent";
 
 const EMICalculator = () => {
   const [principal, setPrincipal] = useState(100000);
@@ -207,6 +209,11 @@ const EMICalculator = () => {
             </div>
           </div>
         </div>
+
+        <ToolContent
+          title="EMI Calculator"
+          {...toolContentData["emi-calculator"]}
+        />
       </div>
     </ToolLayout>
   );

@@ -60,40 +60,40 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Categories */}
+          {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Categories</h4>
+            <h4 className="font-semibold mb-4 text-white">Company</h4>
             <ul className="space-y-3">
               <li>
                 <Link
-                  to="/tools"
+                  to="/about"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
-                  All Tools
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/feedback"
+                  to="/contact"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
-                  User Feedback
+                  Contact
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/tools"
+                  to="/privacy"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
-                  PDF Tools
+                  Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/tools"
+                  to="/terms"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
-                  Image Tools
+                  Terms of Service
                 </Link>
               </li>
             </ul>
@@ -101,10 +101,23 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-400 text-sm">
-            © 2025 QuickTools. All Rights Reserved.
-          </p>
+        <div className="mt-12 pt-8 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm">
+              © 2025 QuickTools Online. All Rights Reserved.
+            </p>
+            <div className="flex gap-6 text-sm">
+              <Link to="/privacy" className="text-gray-400 hover:text-blue-400 transition-colors">
+                Privacy
+              </Link>
+              <Link to="/terms" className="text-gray-400 hover:text-blue-400 transition-colors">
+                Terms
+              </Link>
+              <Link to="/contact" className="text-gray-400 hover:text-blue-400 transition-colors">
+                Contact
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

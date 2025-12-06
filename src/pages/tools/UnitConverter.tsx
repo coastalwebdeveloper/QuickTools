@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Scale, ArrowLeftRight } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
+import { toolContentData } from "@/lib/toolContent";
 
 type ConversionCategory = "length" | "weight" | "temperature" | "area" | "volume";
 
@@ -235,6 +237,11 @@ const UnitConverter = () => {
             </p>
           </div>
         )}
+
+        <ToolContent
+          title="Unit Converter"
+          {...toolContentData["unit-converter"]}
+        />
       </div>
     </ToolLayout>
   );

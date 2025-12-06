@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { GitCompare } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
+import { toolContentData } from "@/lib/toolContent";
 
 const TextDiff = () => {
   const [text1, setText1] = useState("");
@@ -86,6 +88,11 @@ const TextDiff = () => {
             </div>
           </div>
         )}
+
+        <ToolContent
+          title="Text Diff Checker"
+          {...toolContentData["text-diff"]}
+        />
       </div>
     </ToolLayout>
   );

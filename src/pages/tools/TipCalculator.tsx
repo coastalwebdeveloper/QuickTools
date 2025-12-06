@@ -1,7 +1,9 @@
 import { useState, useMemo } from "react";
 import { Percent } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
+import { toolContentData } from "@/lib/toolContent";
 
 const TipCalculator = () => {
   const [billAmount, setBillAmount] = useState("");
@@ -191,6 +193,11 @@ const TipCalculator = () => {
             </div>
           </div>
         )}
+
+        <ToolContent
+          title="Tip Calculator"
+          {...toolContentData["tip-calculator"]}
+        />
       </div>
     </ToolLayout>
   );

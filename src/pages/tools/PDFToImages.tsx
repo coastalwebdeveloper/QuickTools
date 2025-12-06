@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { FileImage, Download } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import * as pdfjsLib from "pdfjs-dist";
+import { toolContentData } from "@/lib/toolContent";
 
 const PDFToImages = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -115,6 +117,11 @@ const PDFToImages = () => {
             </div>
           </div>
         )}
+
+        <ToolContent
+          title="PDF to Images"
+          {...toolContentData["pdf-to-images"]}
+        />
       </div>
     </ToolLayout>
   );

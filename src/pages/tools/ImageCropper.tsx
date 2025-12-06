@@ -1,8 +1,10 @@
 import { useState, useRef } from "react";
 import { Crop, Download } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const ImageCropper = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -89,6 +91,11 @@ const ImageCropper = () => {
             </Button>
           </div>
         )}
+
+        <ToolContent
+          title="Image Cropper"
+          {...toolContentData["image-cropper"]}
+        />
       </div>
     </ToolLayout>
   );

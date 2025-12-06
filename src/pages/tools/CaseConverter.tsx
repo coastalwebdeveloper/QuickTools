@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Type, Copy, Check } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const CaseConverter = () => {
   const [text, setText] = useState("");
@@ -126,6 +128,11 @@ const CaseConverter = () => {
             Clear
           </Button>
         </div>
+
+        <ToolContent
+          title="Case Converter"
+          {...toolContentData["case-converter"]}
+        />
       </div>
     </ToolLayout>
   );

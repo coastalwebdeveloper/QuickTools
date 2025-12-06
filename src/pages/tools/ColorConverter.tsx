@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Palette, Copy, Check } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 interface ColorValues {
   hex: string;
@@ -345,6 +347,11 @@ const ColorConverter = () => {
             ))}
           </div>
         </div>
+
+        <ToolContent
+          title="Color Converter"
+          {...toolContentData["color-converter"]}
+        />
       </div>
     </ToolLayout>
   );

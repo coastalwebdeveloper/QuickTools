@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Minimize2, Upload, Download } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import imageCompression from "browser-image-compression";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const ImageCompressor = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -141,6 +143,11 @@ const ImageCompressor = () => {
             </div>
           </div>
         )}
+
+        <ToolContent
+          title="Image Compressor"
+          {...toolContentData["image-compressor"]}
+        />
       </div>
     </ToolLayout>
   );

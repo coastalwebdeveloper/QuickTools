@@ -1,10 +1,12 @@
 import { useState, useCallback } from "react";
 import { Lock, Copy, Check, RefreshCw } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
+import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
+import { toolContentData } from "@/lib/toolContent";
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState("");
@@ -168,6 +170,11 @@ const PasswordGenerator = () => {
           <RefreshCw className="w-5 h-5 mr-2" />
           Generate Password
         </Button>
+
+        <ToolContent
+          title="Password Generator"
+          {...toolContentData["password-generator"]}
+        />
       </div>
     </ToolLayout>
   );
