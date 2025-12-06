@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Favicons</title>
+</head>
+<body>
+    <h2>Generate Missing Favicon Sizes</h2>
+    <input type="file" id="upload" accept="image/*">
+    <canvas id="canvas16" width="16" height="16" style="display:none;"></canvas>
+    <canvas id="canvas32" width="32" height="32" style="display:none;"></canvas>
+    
+    <script>
+        document.getElementById('upload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const img = new Image();
+            img.onload = function() {
+                // Generate 16x16
+                const ctx16 = document.getElementById('canvas16').getContext('2d');
+                ctx16.drawImage(img, 0, 0, 16, 16);
+                document.getElementById('canvas16').toBlob(blob => {
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = 'favicon-16x16.png';
+                    a.click();
+                });
+                
+                // Generate 32x32
+                setTimeout(() => {
+                    const ctx32 = document.getElementById('canvas32').getContext('2d');
+                    ctx32.drawImage(img, 0, 0, 32, 32);
+                    document.getElementById('canvas32').toBlob(blob => {
+                        const a = document.createElement('a');
+                        a.href = URL.createObjectURL(blob);
+                        a.download = 'favicon-32x32.png';
+                        a.click();
+                    });
+                }, 500);
+            };
+            img.src = URL.createObjectURL(file);
+        });
+    </script>
+</body>
+</html>
