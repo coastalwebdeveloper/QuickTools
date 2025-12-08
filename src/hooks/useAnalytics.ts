@@ -4,21 +4,23 @@ import { supabase } from '@/lib/supabase'
 export const useAnalytics = () => {
   const trackToolUsage = useCallback(async (toolId: string) => {
     try {
-      // Get user IP (simplified - in production you'd use a proper IP service)
       const userIP = 'anonymous'
       
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('tool_usage')
         .insert({
           tool_id: toolId,
           user_ip: userIP
         })
+        .select()
       
       if (error) {
-        console.error('Analytics tracking error:', error)
+        console.error('❌ Tool usage tracking failed:', error.message, error)
+      } else {
+        console.log('✅ Tool usage tracked:', toolId)
       }
     } catch (error) {
-      console.error('Analytics tracking error:', error)
+      console.error('❌ Tool usage tracking exception:', error)
     }
   }, [])
 
