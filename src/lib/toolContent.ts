@@ -244,6 +244,41 @@ export const toolContentData: Record<string, ToolContentData> = {
       { question: "Can I change the order of PDFs?", answer: "Yes. Simply drag and drop files to reorder them before merging." }
     ]
   },
+  "pdf-split": {
+    description: "The PDF Split tool separates multi-page PDF documents into individual single-page files. Perfect for extracting specific pages, organizing documents, or sharing individual pages without sending the entire document.",
+    howToUse: [
+      "Upload your PDF file",
+      "Preview the number of pages",
+      "Click 'Split PDF' to separate pages",
+      "Download individual page files",
+      "Each page saves as a separate PDF"
+    ],
+    benefits: [
+      "Split into individual pages",
+      "No quality loss",
+      "Batch download all pages",
+      "Browser-based processing",
+      "No file uploads to servers",
+      "Free unlimited splits",
+      "Works offline after load"
+    ],
+    useCases: [
+      "Extracting specific pages from reports",
+      "Separating scanned documents",
+      "Sharing individual pages",
+      "Organizing multi-page documents",
+      "Creating single-page handouts",
+      "Extracting forms from packets",
+      "Splitting contracts and agreements"
+    ],
+    faq: [
+      { question: "Does splitting reduce PDF quality?", answer: "No. Each page maintains the original quality and formatting from the source PDF." },
+      { question: "Can I split password-protected PDFs?", answer: "You must unlock password-protected PDFs before splitting due to security restrictions." },
+      { question: "Are PDFs uploaded to a server?", answer: "No. All splitting happens locally in your browser. Your files never leave your device." },
+      { question: "Can I select specific pages to extract?", answer: "The current version splits all pages. Selective extraction may be added in future updates." },
+      { question: "How are the files named?", answer: "Split pages are automatically named as 'page-1.pdf', 'page-2.pdf', etc." }
+    ]
+  },
   "pdf-to-images": {
     description: "The PDF to Images tool converts PDF pages into individual image files (PNG, JPEG). Ideal for extracting graphics, creating thumbnails, or converting documents into image format for presentations and web use.",
     howToUse: [
