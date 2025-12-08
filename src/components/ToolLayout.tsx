@@ -5,6 +5,7 @@ import { LucideIcon } from "lucide-react";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import Navbar from "@/components/Navbar";
 
 interface ToolLayoutProps {
   title: string;
@@ -57,6 +58,7 @@ const ToolLayout = ({
   };
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
         <Link
