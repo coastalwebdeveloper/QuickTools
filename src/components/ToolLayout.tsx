@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Info, Star, MessageSquare } from "lucide-react";
 import { LucideIcon } from "lucide-react";
@@ -32,15 +32,18 @@ const ToolLayout = ({
   const [comment, setComment] = useState('');
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
 
-  useEffect(() => {
-    trackToolUsage(toolId);
-    loadStats();
-  }, [toolId]);
-
-  const loadStats = async () => {
+  const loadStats = useCallback(async () => {
     const toolStats = await getToolStats(toolId);
     setStats(toolStats);
-  };
+  }, [toolId, getToolStats]);
+
+  useEffect(() => {
+    const initTool = async () => {
+      await trackToolUsage(toolId);
+      await loadStats();
+    };
+    initTool();
+  }, [toolId, trackToolUsage, loadStats]);
 
   const handleFeedbackSubmit = async () => {
     if (rating === 0) return;
