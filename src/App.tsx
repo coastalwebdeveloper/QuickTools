@@ -11,6 +11,9 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Blog from "./pages/Blog";
+import PdfBestPractices from "./pages/blog/PdfBestPractices";
+import ImageOptimization from "./pages/blog/ImageOptimization";
 
 // Tool Pages
 import WordCounter from "./pages/tools/WordCounter";
@@ -51,6 +54,9 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/pdf-best-practices" element={<PdfBestPractices />} />
+          <Route path="/blog/image-optimization" element={<ImageOptimization />} />
           
           {/* Text Tools */}
           <Route path="/tools/word-counter" element={<WordCounter />} />

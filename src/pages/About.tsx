@@ -81,6 +81,57 @@ const About = () => {
             We are committed to maintaining QuickTools Online as a free, privacy-focused platform. We believe essential digital tools should be accessible to everyone without barriers. Your trust and privacy are our top priorities.
           </p>
 
+          <h2 className="text-2xl font-bold mt-8 mb-4">How Our Tools Work</h2>
+          <p>
+            Unlike traditional online tools that require uploading files to remote servers, QuickTools processes everything locally in your web browser using modern JavaScript technologies. This approach offers several advantages:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+            <li><strong>Complete Privacy:</strong> Your files never leave your device, eliminating privacy concerns</li>
+            <li><strong>Faster Processing:</strong> No upload/download delays mean instant results</li>
+            <li><strong>No File Size Limits:</strong> Process files of any size without server restrictions</li>
+            <li><strong>Works Offline:</strong> Once loaded, many tools work without an internet connection</li>
+            <li><strong>No Storage Concerns:</strong> We don't store any of your data, ever</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Who Uses QuickTools?</h2>
+          <p>
+            Our tools serve a diverse community of users worldwide:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+            <li><strong>Students:</strong> For assignments, research papers, and academic projects</li>
+            <li><strong>Professionals:</strong> For business documents, presentations, and reports</li>
+            <li><strong>Content Creators:</strong> For optimizing images and managing digital assets</li>
+            <li><strong>Developers:</strong> For encoding, conversion, and testing tasks</li>
+            <li><strong>Small Businesses:</strong> For everyday document and image processing needs</li>
+            <li><strong>Anyone:</strong> Who values privacy, speed, and free access to quality tools</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Our Technology Stack</h2>
+          <p>
+            QuickTools is built with modern web technologies to ensure the best performance and user experience:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+            <li><strong>React & TypeScript:</strong> For a robust, type-safe user interface</li>
+            <li><strong>Vite:</strong> For lightning-fast development and optimized builds</li>
+            <li><strong>Tailwind CSS:</strong> For responsive, modern design</li>
+            <li><strong>PDF.js:</strong> For client-side PDF processing</li>
+            <li><strong>Canvas API:</strong> For image manipulation and optimization</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Learn More</h2>
+          <p>
+            We regularly publish guides and tutorials to help you get the most out of our tools. Check out our resources section for in-depth articles on:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
+            <li>PDF management best practices</li>
+            <li>Image optimization techniques</li>
+            <li>Text processing workflows</li>
+            <li>Financial calculations and planning</li>
+          </ul>
+          <Link to="/blog" className="text-primary hover:underline font-medium">
+            Browse Resources & Guides →
+          </Link>
+
           <div className="bg-primary/10 border border-primary/20 rounded-xl p-6 mt-8">
             <h3 className="text-xl font-semibold mb-2">Get in Touch</h3>
             <p className="text-muted-foreground mb-4">
