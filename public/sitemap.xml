@@ -115,6 +115,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.quicktools.website/tools/image-cropper</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.quicktools.website/tools/base64-tool</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.quicktools.website/tools/text-diff</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.quicktools.website/tools/pdf-to-images</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.quicktools.website/blog</loc>
     <lastmod>2025-01-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -133,9 +157,39 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.quicktools.website/blog/financial-calculators</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quicktools.website/blog/text-productivity</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.quicktools.website/about</loc>
     <lastmod>2025-01-02T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.quicktools.website/contact</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.quicktools.website/privacy</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.quicktools.website/terms</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

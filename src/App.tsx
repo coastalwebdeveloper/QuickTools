@@ -14,6 +14,8 @@ import Terms from "./pages/Terms";
 import Blog from "./pages/Blog";
 import PdfBestPractices from "./pages/blog/PdfBestPractices";
 import ImageOptimization from "./pages/blog/ImageOptimization";
+import FinancialCalculators from "./pages/blog/FinancialCalculators";
+import TextProductivity from "./pages/blog/TextProductivity";
 
 // Tool Pages
 import WordCounter from "./pages/tools/WordCounter";
@@ -57,6 +59,8 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/pdf-best-practices" element={<PdfBestPractices />} />
           <Route path="/blog/image-optimization" element={<ImageOptimization />} />
+          <Route path="/blog/financial-calculators" element={<FinancialCalculators />} />
+          <Route path="/blog/text-productivity" element={<TextProductivity />} />
           
           {/* Text Tools */}
           <Route path="/tools/word-counter" element={<WordCounter />} />
