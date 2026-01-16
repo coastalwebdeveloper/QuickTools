@@ -17,11 +17,11 @@ export default defineConfig(({ mode }) => ({
   build: {
     target: 'es2020',
     cssCodeSplit: true,
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['lucide-react', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
+          'vendor': ['react', 'react-dom', 'react-router-dom', 'lucide-react'],
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'sitemap.xml' || assetInfo.name === 'robots.txt') {
@@ -31,6 +31,6 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    chunkSizeWarningLimit: 600,
+    chunkSizeWarningLimit: 1000,
   },
 }));

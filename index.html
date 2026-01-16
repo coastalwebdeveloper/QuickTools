@@ -43,9 +43,10 @@
 
     <meta name="google-adsense-account" content="ca-pub-3563158757486902">
 
-    <!-- Preload critical font -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+    <style>
+      #root{min-height:100vh;display:flex;flex-direction:column}
+      body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    </style>
 
     <!-- JSON-LD: Organization Schema -->
     <script type="application/ld+json">
@@ -113,33 +114,30 @@
   </head>
 
   <body>
-    <!-- React App -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-
-    <!-- Deferred Analytics -->
     <script>
-      window.addEventListener('load', function() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-T4X81RD9WF';
-        document.head.appendChild(script);
-        window.dataLayer = window.dataLayer || [];
+      setTimeout(function(){
+        var f=document.createElement('link');
+        f.rel='stylesheet';
+        f.href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+        document.head.appendChild(f);
+        
+        var g=document.createElement('script');
+        g.async=true;
+        g.src='https://www.googletagmanager.com/gtag/js?id=G-T4X81RD9WF';
+        document.head.appendChild(g);
+        window.dataLayer=window.dataLayer||[];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-T4X81RD9WF');
-      });
-    </script>
-
-    <!-- Deferred AdSense -->
-    <script>
-      window.addEventListener('load', function() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3563158757486902';
-        script.crossOrigin = 'anonymous';
-        document.head.appendChild(script);
-      });
+        gtag('js',new Date());
+        gtag('config','G-T4X81RD9WF');
+        
+        var a=document.createElement('script');
+        a.async=true;
+        a.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3563158757486902';
+        a.crossOrigin='anonymous';
+        document.head.appendChild(a);
+      },3000);
     </script>
   </body>
 </html>
