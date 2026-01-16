@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://www.googletagmanager.com https://pagead2.googlesyndication.com https://cdn.ampproject.org https://unpkg.com https://ep2.adtrafficquality.google; connect-src 'self' blob: https://gmutkdowdxslpcgqmfeh.supabase.co https://www.google-analytics.com https://analytics.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://cdn.ampproject.org https://staticimgly.com https://tinyurl.com; img-src 'self' data: https: blob:; worker-src 'self' blob:;" />
 
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://www.quicktools.website/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="https://www.quicktools.website/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://www.quicktools.website/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="https://www.quicktools.website/favicon-96x96.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://www.quicktools.website/apple-touch-icon.png" />
-    <link rel="manifest" href="https://www.quicktools.website/site.webmanifest" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Primary SEO -->
     <title>QuickTools Online - Free PDF, Image, Text, Converter & Calculator Tools</title>
@@ -38,16 +41,11 @@
     <!-- Google Verification -->
     <meta name="google-site-verification" content="h7vaAGhxsDt19dF-c4xIt4SeRjDYcLbZYcmkZES5YSM" />
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4X81RD9WF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-T4X81RD9WF');
-    </script>
-
     <meta name="google-adsense-account" content="ca-pub-3563158757486902">
+
+    <!-- Preload critical font -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
 
     <!-- JSON-LD: Organization Schema -->
     <script type="application/ld+json">
@@ -112,24 +110,36 @@
     }
     </script>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3563158757486902"
-     crossorigin="anonymous"></script>
-
-     <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-     </script>
   </head>
 
   <body>
-
     <!-- React App -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
+    <!-- Deferred Analytics -->
+    <script>
+      window.addEventListener('load', function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-T4X81RD9WF';
+        document.head.appendChild(script);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-T4X81RD9WF');
+      });
+    </script>
+
+    <!-- Deferred AdSense -->
+    <script>
+      window.addEventListener('load', function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3563158757486902';
+        script.crossOrigin = 'anonymous';
+        document.head.appendChild(script);
+      });
+    </script>
   </body>
-
-  <amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-3563158757486902">
-  </amp-auto-ads>
-
 </html>
