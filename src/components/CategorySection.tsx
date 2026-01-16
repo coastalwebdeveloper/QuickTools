@@ -44,7 +44,7 @@ const CategorySection = () => {
                 </div>
 
                 {/* Tools List */}
-                <div className="space-y-3 mb-6">
+                <div className="space-y-3">
                   {categoryTools.slice(0, 4).map((tool) => {
                     const ToolIcon = tool.icon;
                     return (
@@ -69,16 +69,6 @@ const CategorySection = () => {
                     );
                   })}
                 </div>
-
-                {/* View All Button */}
-                {categoryTools.length > 4 && (
-                  <button
-                    onClick={() => document.getElementById(category.id)?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full py-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                  >
-                    View all {categoryTools.length} tools
-                  </button>
-                )}
               </div>
             );
           })}

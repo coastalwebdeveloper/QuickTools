@@ -27,6 +27,11 @@ import {
   Crop,
   FileImage,
   LucideIcon,
+  FileDown,
+  FileSpreadsheet,
+  ScanText,
+  Link,
+  ImageMinus,
 } from "lucide-react";
 
 export interface Tool {
@@ -58,22 +63,58 @@ export const categories: Category[] = [
 export const tools: Tool[] = [
   // PDF Tools
   {
+    id: "pdf-to-word",
+    name: "PDF to Word",
+    description: "Convert PDF documents to editable Word files",
+    icon: FileDown,
+    category: "pdf",
+    path: "/tools/pdf-to-word",
+    color: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  },
+  {
+    id: "pdf-compressor",
+    name: "PDF Compressor",
+    description: "Reduce PDF file size without losing quality",
+    icon: Minimize2,
+    category: "pdf",
+    path: "/tools/pdf-compressor",
+    color: "bg-red-500/10 text-red-600 dark:text-red-400",
+  },
+  {
     id: "pdf-merge",
-    name: "PDF Merger",
+    name: "Merge PDF",
     description: "Combine multiple PDF files into one document",
     icon: FileText,
     category: "pdf",
     path: "/tools/pdf-merge",
-    color: "bg-red-500/10 text-red-600 dark:text-red-400",
+    color: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
   },
   {
     id: "pdf-split",
-    name: "PDF Splitter",
+    name: "Split PDF",
     description: "Split PDF documents into separate pages",
     icon: Scissors,
     category: "pdf",
     path: "/tools/pdf-split",
-    color: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
+    color: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+  },
+  {
+    id: "pdf-to-excel",
+    name: "PDF to Excel",
+    description: "Convert PDF tables to Excel spreadsheets",
+    icon: FileSpreadsheet,
+    category: "pdf",
+    path: "/tools/pdf-to-excel",
+    color: "bg-green-500/10 text-green-600 dark:text-green-400",
+  },
+  {
+    id: "ocr-pdf",
+    name: "OCR PDF",
+    description: "Extract text from scanned PDF documents",
+    icon: ScanText,
+    category: "pdf",
+    path: "/tools/ocr-pdf",
+    color: "bg-purple-500/10 text-purple-600 dark:text-purple-400",
   },
   {
     id: "pdf-to-images",
@@ -82,9 +123,27 @@ export const tools: Tool[] = [
     icon: FileImage,
     category: "pdf",
     path: "/tools/pdf-to-images",
-    color: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+    color: "bg-pink-500/10 text-pink-600 dark:text-pink-400",
   },
   // Image Tools
+  {
+    id: "image-background-remover",
+    name: "Image Background Remover",
+    description: "Remove backgrounds from images automatically",
+    icon: ImageMinus,
+    category: "image",
+    path: "/tools/image-background-remover",
+    color: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  },
+  {
+    id: "image-to-webp",
+    name: "Image to WebP Converter",
+    description: "Convert images to WebP format for better compression",
+    icon: RefreshCw,
+    category: "image",
+    path: "/tools/image-to-webp",
+    color: "bg-green-500/10 text-green-600 dark:text-green-400",
+  },
   {
     id: "image-compressor",
     name: "Image Compressor",
@@ -92,7 +151,7 @@ export const tools: Tool[] = [
     icon: Minimize2,
     category: "image",
     path: "/tools/image-compressor",
-    color: "bg-green-500/10 text-green-600 dark:text-green-400",
+    color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
   },
   {
     id: "image-resizer",
@@ -101,7 +160,7 @@ export const tools: Tool[] = [
     icon: Maximize2,
     category: "image",
     path: "/tools/image-resizer",
-    color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+    color: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
   },
   {
     id: "image-cropper",
@@ -110,7 +169,7 @@ export const tools: Tool[] = [
     icon: Crop,
     category: "image",
     path: "/tools/image-cropper",
-    color: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
+    color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
   },
   // Converters
   {
@@ -206,6 +265,15 @@ export const tools: Tool[] = [
     color: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
   },
   // Misc Tools
+  {
+    id: "url-shortener",
+    name: "URL Shortener",
+    description: "Create short, shareable links from long URLs",
+    icon: Link,
+    category: "misc",
+    path: "/tools/url-shortener",
+    color: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  },
   {
     id: "qr-generator",
     name: "QR Code Generator",

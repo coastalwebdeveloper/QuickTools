@@ -1,45 +1,26 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, BookOpen, FileText, Image, Calculator, Type } from "lucide-react";
+import { ArrowLeft, BookOpen, FileText, Image, Calculator, Type, Wrench } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const blogPosts = [
-  {
-    id: "pdf-best-practices",
-    title: "PDF Management Best Practices: A Complete Guide",
-    excerpt: "Learn how to efficiently manage, merge, and split PDF documents for personal and professional use.",
-    category: "PDF Tools",
-    icon: FileText,
-    readTime: "8 min read",
-    path: "/blog/pdf-best-practices"
-  },
-  {
-    id: "image-optimization",
-    title: "Image Optimization Guide: Compress Without Losing Quality",
-    excerpt: "Discover techniques to reduce image file sizes while maintaining visual quality for web and print.",
-    category: "Image Tools",
-    icon: Image,
-    readTime: "6 min read",
-    path: "/blog/image-optimization"
-  },
-  {
-    id: "financial-calculators",
-    title: "Understanding EMI, Loans, and Financial Planning",
-    excerpt: "Master loan calculations, EMI planning, and make informed financial decisions with our guide.",
-    category: "Calculators",
-    icon: Calculator,
-    readTime: "10 min read",
-    path: "/blog/financial-calculators"
-  },
-  {
-    id: "text-productivity",
-    title: "Text Processing Tips for Enhanced Productivity",
-    excerpt: "Boost your writing efficiency with text tools, word counting, and formatting techniques.",
-    category: "Text Tools",
-    icon: Type,
-    readTime: "7 min read",
-    path: "/blog/text-productivity"
-  }
+  { id: "all-tools-guide", title: "Complete Guide to QuickTools Online: 30+ Free Tools", excerpt: "Discover all the free, browser-based tools available on QuickTools Online.", category: "All Tools", icon: Wrench, readTime: "15 min read", path: "/blog/all-tools-guide" },
+  { id: "pdf-to-word-guide", title: "How to Convert PDF to Word: Complete Guide", excerpt: "Learn how to convert PDF documents to editable Word files.", category: "PDF Tools", icon: FileText, readTime: "10 min read", path: "/blog/pdf-to-word-guide" },
+  { id: "pdf-compressor-guide", title: "PDF Compression Guide: Reduce File Size", excerpt: "Compress PDF files effectively for email and storage.", category: "PDF Tools", icon: FileText, readTime: "8 min read", path: "/blog/pdf-compressor-guide" },
+  { id: "pdf-to-excel-guide", title: "PDF to Excel Converter Guide", excerpt: "Extract tables and data from PDFs to Excel spreadsheets.", category: "PDF Tools", icon: FileText, readTime: "7 min read", path: "/blog/pdf-to-excel-guide" },
+  { id: "ocr-pdf-guide", title: "OCR PDF: Extract Text from Scanned Documents", excerpt: "Convert scanned PDFs to searchable, editable text.", category: "PDF Tools", icon: FileText, readTime: "8 min read", path: "/blog/ocr-pdf-guide" },
+  { id: "background-remover-guide", title: "AI Background Remover Guide", excerpt: "Remove backgrounds from images using AI technology.", category: "Image Tools", icon: Image, readTime: "12 min read", path: "/blog/background-remover-guide" },
+  { id: "image-compressor-guide", title: "Image Compressor: Reduce File Size", excerpt: "Compress images for faster uploads and website optimization.", category: "Image Tools", icon: Image, readTime: "7 min read", path: "/blog/image-compressor-guide" },
+  { id: "webp-converter-guide", title: "WebP Converter: Modern Image Format", excerpt: "Convert images to WebP for superior compression.", category: "Image Tools", icon: Image, readTime: "6 min read", path: "/blog/webp-converter-guide" },
+  { id: "word-counter-guide", title: "Word Counter Guide", excerpt: "Track words, characters, and more for your content.", category: "Text Tools", icon: Type, readTime: "5 min read", path: "/blog/word-counter-guide" },
+  { id: "qr-generator-guide", title: "QR Code Generator Guide", excerpt: "Create scannable QR codes for any purpose.", category: "Other Tools", icon: Wrench, readTime: "6 min read", path: "/blog/qr-generator-guide" },
+  { id: "password-generator-guide", title: "Password Generator Guide", excerpt: "Create strong, secure passwords to protect your accounts.", category: "Other Tools", icon: Wrench, readTime: "5 min read", path: "/blog/password-generator-guide" },
+  { id: "bmi-calculator-guide", title: "BMI Calculator Guide", excerpt: "Calculate and understand your Body Mass Index.", category: "Calculators", icon: Calculator, readTime: "6 min read", path: "/blog/bmi-calculator-guide" },
+  { id: "url-shortener-guide", title: "URL Shortener Guide", excerpt: "Create short, shareable links for social media.", category: "Other Tools", icon: Wrench, readTime: "6 min read", path: "/blog/url-shortener-guide" },
+  { id: "pdf-best-practices", title: "PDF Management Best Practices", excerpt: "Learn how to efficiently manage PDF documents.", category: "PDF Tools", icon: FileText, readTime: "8 min read", path: "/blog/pdf-best-practices" },
+  { id: "image-optimization", title: "Image Optimization Guide", excerpt: "Reduce image file sizes while maintaining quality.", category: "Image Tools", icon: Image, readTime: "6 min read", path: "/blog/image-optimization" },
+  { id: "financial-calculators", title: "Understanding EMI and Financial Planning", excerpt: "Master loan calculations and financial decisions.", category: "Calculators", icon: Calculator, readTime: "10 min read", path: "/blog/financial-calculators" },
+  { id: "text-productivity", title: "Text Processing Tips", excerpt: "Boost writing efficiency with text tools.", category: "Text Tools", icon: Type, readTime: "7 min read", path: "/blog/text-productivity" }
 ];
 
 const Blog = () => {

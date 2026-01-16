@@ -82,6 +82,14 @@ const Footer = () => {
               </li>
               <li>
                 <Link
+                  to="/blog/all-tools-guide"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  All Tools Guide
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/contact"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >

@@ -1,5 +1,5 @@
 import { Search, Zap, Shield, Star } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { searchTools, tools } from "@/lib/toolsData";
 
@@ -7,10 +7,13 @@ const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<ReturnType<typeof searchTools>>([]);
   const [showResults, setShowResults] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
   const navigate = useNavigate();
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
+    setSelectedIndex(-1);
     if (query.trim()) {
       const results = searchTools(query);
       setSearchResults(results);
@@ -19,6 +22,40 @@ const HeroSection = () => {
       setSearchResults([]);
       setShowResults(false);
     }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!showResults || searchResults.length === 0) return;
+
+    switch (e.key) {
+      case "ArrowDown":
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev < searchResults.slice(0, 6).length - 1 ? prev + 1 : prev));
+        break;
+      case "ArrowUp":
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
+        break;
+      case "Enter":
+        e.preventDefault();
+        if (selectedIndex >= 0 && selectedIndex < searchResults.slice(0, 6).length) {
+          handleSelectTool(searchResults[selectedIndex].path);
+        }
+        break;
+      case "Escape":
+        setShowResults(false);
+        searchInputRef.current?.blur();
+        break;
+    }
+  };
+
+  const highlightMatch = (text: string, query: string) => {
+    if (!query.trim()) return text;
+    const parts = text.split(new RegExp(`(${query})`, "gi"));
+    return parts.map((part, i) => 
+      part.toLowerCase() === query.toLowerCase() ? 
+        <mark key={i} className="bg-yellow-200 dark:bg-yellow-900/50 text-inherit">{part}</mark> : part
+    );
   };
 
   const handleSelectTool = (path: string) => {
@@ -52,10 +89,12 @@ const HeroSection = () => {
             <div className="relative">
               <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" />
               <input
+                ref={searchInputRef}
                 type="text"
                 placeholder="Search tools (e.g., PDF, calculator, converter)..."
                 value={searchQuery}
                 onChange={(e) => handleSearch(e.target.value)}
+                onKeyDown={handleKeyDown}
                 onFocus={() => searchQuery && setShowResults(true)}
                 onBlur={() => setTimeout(() => setShowResults(false), 200)}
                 className="w-full pl-16 pr-6 py-5 text-lg rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-lg focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none"
@@ -65,21 +104,26 @@ const HeroSection = () => {
             {/* Search Results */}
             {showResults && searchResults.length > 0 && (
               <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl overflow-hidden z-50">
-                {searchResults.slice(0, 6).map((tool) => {
+                {searchResults.slice(0, 6).map((tool, index) => {
                   const Icon = tool.icon;
+                  const isSelected = index === selectedIndex;
                   return (
                     <button
                       key={tool.id}
                       onClick={() => handleSelectTool(tool.path)}
-                      className="w-full flex items-center gap-4 px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-left border-b border-gray-100 dark:border-gray-700 last:border-b-0"
+                      className={`w-full flex items-center gap-4 px-6 py-4 transition-colors text-left border-b border-gray-100 dark:border-gray-700 last:border-b-0 ${
+                        isSelected ? "bg-blue-50 dark:bg-blue-900/20" : "hover:bg-gray-50 dark:hover:bg-gray-700"
+                      }`}
                     >
                       <div className={`p-3 rounded-xl ${tool.color}`}>
                         <Icon className="w-5 h-5" />
                       </div>
-                      <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">{tool.name}</p>
+                      <div className="flex-1">
+                        <p className="font-semibold text-gray-900 dark:text-white">
+                          {highlightMatch(tool.name, searchQuery)}
+                        </p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {tool.description}
+                          {highlightMatch(tool.description, searchQuery)}
                         </p>
                       </div>
                     </button>

@@ -17,6 +17,25 @@ const Index = () => {
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
+              {/* Trust Stats */}
+              <div className="text-center mb-12">
+                <p className="text-sm text-muted-foreground mb-2">Trusted by users worldwide</p>
+                <div className="flex flex-wrap justify-center gap-8 text-center">
+                  <div>
+                    <p className="text-3xl font-bold text-primary">10,000+</p>
+                    <p className="text-sm text-muted-foreground">Active Users</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-primary">25+</p>
+                    <p className="text-sm text-muted-foreground">Free Tools</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-primary">100%</p>
+                    <p className="text-sm text-muted-foreground">Browser-Based</p>
+                  </div>
+                </div>
+              </div>
+
               <h2 className="text-3xl font-bold text-center mb-12">Why Choose QuickTools Online?</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-card border border-border rounded-xl p-6 text-center">
@@ -25,6 +44,7 @@ const Index = () => {
                   </div>
                   <h3 className="text-lg font-semibold mb-2">100% Private</h3>
                   <p className="text-sm text-muted-foreground">All processing happens in your browser. Your files never leave your device.</p>
+                  <p className="text-xs text-primary mt-2 font-medium">No files stored on our servers</p>
                 </div>
                 <div className="bg-card border border-border rounded-xl p-6 text-center">
                   <div className="inline-flex p-3 bg-primary/10 rounded-lg mb-4">
@@ -32,6 +52,7 @@ const Index = () => {
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Lightning Fast</h3>
                   <p className="text-sm text-muted-foreground">No uploads or downloads. Instant results with local processing.</p>
+                  <p className="text-xs text-primary mt-2 font-medium">Processing happens locally</p>
                 </div>
                 <div className="bg-card border border-border rounded-xl p-6 text-center">
                   <div className="inline-flex p-3 bg-primary/10 rounded-lg mb-4">
@@ -39,6 +60,7 @@ const Index = () => {
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Always Free</h3>
                   <p className="text-sm text-muted-foreground">No subscriptions, no hidden fees. All 25+ tools are completely free.</p>
+                  <p className="text-xs text-primary mt-2 font-medium">Free forever</p>
                 </div>
                 <div className="bg-card border border-border rounded-xl p-6 text-center">
                   <div className="inline-flex p-3 bg-primary/10 rounded-lg mb-4">
@@ -46,6 +68,7 @@ const Index = () => {
                   </div>
                   <h3 className="text-lg font-semibold mb-2">No Sign-Up</h3>
                   <p className="text-sm text-muted-foreground">Start using any tool immediately. No registration required.</p>
+                  <p className="text-xs text-primary mt-2 font-medium">Instant access</p>
                 </div>
               </div>
             </div>

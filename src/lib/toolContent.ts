@@ -7,6 +7,251 @@ export interface ToolContentData {
 }
 
 export const toolContentData: Record<string, ToolContentData> = {
+  "pdf-to-word": {
+    description: "Convert PDF documents to editable Word files (.docx) while preserving text, formatting, and structure. Perfect for editing contracts, reports, and documents originally created as PDFs.",
+    howToUse: [
+      "Upload your PDF file",
+      "Click 'Convert to Word'",
+      "Wait for processing to complete",
+      "Download the Word document (.docx)",
+      "Open in Microsoft Word or Google Docs"
+    ],
+    benefits: [
+      "Preserves document structure and formatting",
+      "Maintains headings and paragraphs",
+      "Includes page breaks",
+      "Browser-based processing",
+      "No file uploads to servers",
+      "Free unlimited conversions",
+      "Works offline after load"
+    ],
+    useCases: [
+      "Editing PDF contracts and agreements",
+      "Updating legacy documents",
+      "Extracting content for reuse",
+      "Converting reports for editing",
+      "Recovering text from PDFs",
+      "Modifying forms and templates",
+      "Collaborative document editing"
+    ],
+    faq: [
+      { question: "Will formatting be preserved?", answer: "Basic formatting like headings, paragraphs, and page breaks are preserved. Complex layouts may need manual adjustment." },
+      { question: "Can I convert scanned PDFs?", answer: "Scanned PDFs contain images, not text. Use OCR PDF tool first to extract text, then convert to Word." },
+      { question: "Are my PDFs uploaded anywhere?", answer: "No. All conversion happens in your browser. Your files never leave your device." },
+      { question: "What about images in PDFs?", answer: "Images are preserved and embedded in the Word document where possible." },
+      { question: "Can I edit the Word document?", answer: "Yes, the output is a fully editable .docx file that works with Microsoft Word, Google Docs, and other word processors." }
+    ]
+  },
+  "pdf-compressor": {
+    description: "Reduce PDF file sizes without losing quality. Compress PDFs for email attachments, faster uploads, and reduced storage space while maintaining document readability.",
+    howToUse: [
+      "Upload your PDF file",
+      "View original file size",
+      "Click 'Compress PDF'",
+      "Wait for compression to complete",
+      "Download the compressed PDF"
+    ],
+    benefits: [
+      "Reduces file size by 40-70%",
+      "Maintains document quality",
+      "No quality loss for text",
+      "Browser-based processing",
+      "No file uploads to servers",
+      "Free unlimited compression",
+      "Works offline after load"
+    ],
+    useCases: [
+      "Email attachments within size limits",
+      "Faster website PDF downloads",
+      "Reducing cloud storage usage",
+      "Mobile-friendly file sizes",
+      "Batch archiving documents",
+      "Meeting upload size restrictions",
+      "Optimizing PDF portfolios"
+    ],
+    faq: [
+      { question: "How much compression can I expect?", answer: "Typically 40-70% reduction depending on content. Image-heavy PDFs compress more than text-only documents." },
+      { question: "Will text quality be affected?", answer: "No. Text remains crisp and readable. Compression mainly affects images and redundant data." },
+      { question: "Can I compress already-compressed PDFs?", answer: "Yes, but results may be minimal if the PDF is already optimized." },
+      { question: "Are PDFs uploaded to servers?", answer: "No. All compression happens in your browser. Your files never leave your device." },
+      { question: "Is there a file size limit?", answer: "The only limit is your browser's memory. Most PDFs up to 100MB compress without issues." }
+    ]
+  },
+  "pdf-to-excel": {
+    description: "Extract tables and data from PDF documents and convert them to Excel-compatible CSV format. Perfect for analyzing financial data, processing invoices, and working with tabular information.",
+    howToUse: [
+      "Upload your PDF file with tables",
+      "Click 'Convert to Excel'",
+      "Wait for extraction to complete",
+      "Download the CSV file",
+      "Open in Excel or Google Sheets"
+    ],
+    benefits: [
+      "Extracts tabular data from PDFs",
+      "CSV format compatible with all spreadsheet software",
+      "Preserves data structure",
+      "Browser-based processing",
+      "No file uploads to servers",
+      "Free unlimited conversions",
+      "Works offline after load"
+    ],
+    useCases: [
+      "Extracting financial statements",
+      "Processing invoice data",
+      "Converting report tables",
+      "Analyzing survey results",
+      "Importing data to databases",
+      "Creating spreadsheets from PDFs",
+      "Data analysis and manipulation"
+    ],
+    faq: [
+      { question: "Will table formatting be preserved?", answer: "Data is extracted as CSV (comma-separated values). You may need to adjust formatting in Excel." },
+      { question: "Can it handle complex tables?", answer: "Simple tables work best. Complex multi-level tables may require manual cleanup." },
+      { question: "What if my PDF has multiple tables?", answer: "All tables are extracted and included in the CSV file." },
+      { question: "Are PDFs uploaded anywhere?", answer: "No. All extraction happens in your browser. Your files never leave your device." },
+      { question: "Can I convert scanned PDFs?", answer: "Scanned PDFs need OCR first. Use our OCR PDF tool to extract text before converting to Excel." }
+    ]
+  },
+  "ocr-pdf": {
+    description: "Extract text from scanned PDF documents using Optical Character Recognition. Convert image-based PDFs into searchable, editable text that you can copy, edit, and reuse.",
+    howToUse: [
+      "Upload your scanned PDF file",
+      "Click 'Extract Text'",
+      "Wait for OCR processing",
+      "View extracted text",
+      "Copy or download the text"
+    ],
+    benefits: [
+      "Extracts text from scanned documents",
+      "Makes PDFs searchable",
+      "Copy and edit extracted text",
+      "Browser-based processing",
+      "No file uploads to servers",
+      "Free unlimited extractions",
+      "Works offline after load"
+    ],
+    useCases: [
+      "Digitizing scanned documents",
+      "Extracting text from old papers",
+      "Making PDFs searchable",
+      "Converting book pages to text",
+      "Processing receipts and invoices",
+      "Recovering text from images",
+      "Creating editable versions of scans"
+    ],
+    faq: [
+      { question: "How accurate is OCR?", answer: "Accuracy depends on scan quality. Clear, high-resolution scans (300+ DPI) produce best results." },
+      { question: "Can it read handwriting?", answer: "OCR works best with typed or printed text. Handwriting recognition is limited." },
+      { question: "What languages are supported?", answer: "The tool supports English and most Latin-based languages." },
+      { question: "Are PDFs uploaded anywhere?", answer: "No. All OCR processing happens in your browser. Your files never leave your device." },
+      { question: "Can I edit the extracted text?", answer: "Yes, extracted text can be copied, edited, and used in any application." }
+    ]
+  },
+  "image-background-remover": {
+    description: "Remove backgrounds from images automatically using AI technology. Create transparent PNGs perfect for product photos, profile pictures, and professional graphics.",
+    howToUse: [
+      "Upload your image (JPG, PNG, WebP)",
+      "Click 'Remove Background'",
+      "Wait for AI processing (5-15 seconds)",
+      "Preview the result",
+      "Download transparent PNG"
+    ],
+    benefits: [
+      "AI-powered background removal",
+      "Professional quality results",
+      "Transparent PNG output",
+      "Works with people, products, animals",
+      "Browser-based processing",
+      "No image uploads to servers",
+      "Free unlimited removals"
+    ],
+    useCases: [
+      "E-commerce product photos",
+      "Professional profile pictures",
+      "Marketing materials",
+      "Social media graphics",
+      "Presentation images",
+      "Logo creation",
+      "Photo editing projects"
+    ],
+    faq: [
+      { question: "How does AI background removal work?", answer: "AI analyzes the image to identify the subject and precisely removes everything else, creating a transparent background." },
+      { question: "What subjects work best?", answer: "People, products, animals, and objects with clear edges work best. Complex backgrounds may need manual touch-up." },
+      { question: "Can I add a new background?", answer: "Yes, the transparent PNG can be placed on any background using image editing software." },
+      { question: "Are images uploaded anywhere?", answer: "No. All AI processing happens in your browser. Your images never leave your device." },
+      { question: "What format is the output?", answer: "Images are saved as PNG files with transparent backgrounds (alpha channel)." }
+    ]
+  },
+  "image-to-webp": {
+    description: "Convert images to modern WebP format for superior compression and faster website loading. Reduce image sizes by 30% compared to JPEG while maintaining quality.",
+    howToUse: [
+      "Upload your image (JPG, PNG, etc.)",
+      "Adjust quality slider (1-100%)",
+      "Click 'Convert to WebP'",
+      "Preview the result",
+      "Download WebP image"
+    ],
+    benefits: [
+      "30% smaller than JPEG",
+      "26% smaller than PNG",
+      "Supports transparency",
+      "Adjustable quality",
+      "Browser-based processing",
+      "No image uploads to servers",
+      "Free unlimited conversions"
+    ],
+    useCases: [
+      "Website image optimization",
+      "Faster page loading",
+      "E-commerce product images",
+      "Blog post images",
+      "Mobile app assets",
+      "Reducing bandwidth costs",
+      "Improving SEO rankings"
+    ],
+    faq: [
+      { question: "What is WebP?", answer: "WebP is a modern image format developed by Google that provides superior compression for web images." },
+      { question: "Do all browsers support WebP?", answer: "Yes, all modern browsers (Chrome, Firefox, Safari, Edge) support WebP since 2020." },
+      { question: "Can WebP have transparent backgrounds?", answer: "Yes, WebP supports transparency like PNG but with better compression." },
+      { question: "Are images uploaded anywhere?", answer: "No. All conversion happens in your browser. Your images never leave your device." },
+      { question: "What quality setting should I use?", answer: "80-90% quality provides excellent results with significant file size reduction." }
+    ]
+  },
+  "url-shortener": {
+    description: "Create short, shareable links from long URLs. Perfect for social media, marketing campaigns, and making links more manageable and memorable.",
+    howToUse: [
+      "Paste your long URL",
+      "Click 'Shorten URL'",
+      "Copy the short link",
+      "Share on social media or messaging",
+      "Track clicks (if analytics enabled)"
+    ],
+    benefits: [
+      "Creates short, memorable links",
+      "Perfect for social media",
+      "Easy to share and remember",
+      "One-click copy to clipboard",
+      "Browser-based processing",
+      "Free unlimited shortening",
+      "Works offline after load"
+    ],
+    useCases: [
+      "Social media posts (Twitter, LinkedIn)",
+      "SMS and text messages",
+      "Print materials (business cards, flyers)",
+      "QR code generation",
+      "Email campaigns",
+      "Marketing materials",
+      "Presentation slides"
+    ],
+    faq: [
+      { question: "Do short links expire?", answer: "Short links are permanent and never expire unless you delete them." },
+      { question: "Can I customize the short URL?", answer: "Custom URLs may be available in future updates. Currently, URLs are auto-generated." },
+      { question: "Can I track clicks?", answer: "Basic click tracking may be added in future updates." },
+      { question: "Are URLs stored?", answer: "Short URLs are generated and stored to maintain the redirect functionality." },
+      { question: "Is there a limit to URL length?", answer: "You can shorten URLs up to 2000 characters long." }
+    ]
+  },
   "word-counter": {
     description: "The Word Counter tool is a free online utility that instantly analyzes your text to provide detailed statistics including word count, character count, sentence count, paragraph count, and estimated reading time. Perfect for writers, students, bloggers, and content creators who need to track text metrics for essays, articles, social media posts, or any written content.",
     howToUse: [
