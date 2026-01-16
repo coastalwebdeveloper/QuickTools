@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Copy, Check } from "lucide-react";
+import { Link, Copy, Check, Loader2 } from "lucide-react";
 import ToolLayout from "@/components/ToolLayout";
 import ToolContent from "@/components/ToolContent";
 import { Button } from "@/components/ui/button";
@@ -11,15 +11,38 @@ const URLShortener = () => {
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleShorten = () => {
+  const handleShorten = async () => {
     if (!url) {
       toast.error("Please enter a URL");
       return;
     }
-    // Placeholder - implement actual URL shortening
-    setShortUrl("https://short.link/abc123");
-    toast.success("URL shortened successfully!");
+
+    // Validate URL format
+    try {
+      new URL(url);
+    } catch {
+      toast.error("Please enter a valid URL (include http:// or https://)");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`);
+      const shortened = await response.text();
+      
+      if (shortened && shortened.startsWith('http')) {
+        setShortUrl(shortened);
+        toast.success("URL shortened successfully!");
+      } else {
+        throw new Error("Invalid response");
+      }
+    } catch (error) {
+      toast.error("Failed to shorten URL. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleCopy = () => {
@@ -54,9 +77,13 @@ const URLShortener = () => {
               onChange={(e) => setUrl(e.target.value)}
             />
           </div>
-          <Button onClick={handleShorten} className="w-full">
-            <Link className="w-4 h-4 mr-2" />
-            Shorten URL
+          <Button onClick={handleShorten} className="w-full" disabled={loading}>
+            {loading ? (
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+            ) : (
+              <Link className="w-4 h-4 mr-2" />
+            )}
+            {loading ? "Shortening..." : "Shorten URL"}
           </Button>
         </div>
 
