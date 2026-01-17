@@ -17,26 +17,32 @@ const MetaTagGenerator = () => {
   const [url, setUrl] = useState("");
 
   const generateMetaTags = () => {
+    const cleanTitle = (title || 'Your Page Title').replace(/\n/g, ' ');
+    const cleanDesc = (description || 'Your page description').replace(/\n/g, ' ');
+    const cleanKeywords = (keywords || 'keyword1, keyword2, keyword3').replace(/\n/g, ' ');
+    const cleanAuthor = (author || 'Author Name').replace(/\n/g, ' ');
+    const cleanUrl = (url || 'https://yourwebsite.com/').replace(/\n/g, ' ');
+    const cleanImage = (ogImage || 'https://yourwebsite.com/image.jpg').replace(/\n/g, ' ');
+
     const tags = `<!-- Primary Meta Tags -->
-<title>${title || 'Your Page Title'}</title>
-<meta name="title" content="${title || 'Your Page Title'}">
-<meta name="description" content="${description || 'Your page description'}">
-<meta name="keywords" content="${keywords || 'keyword1, keyword2, keyword3'}">
-<meta name="author" content="${author || 'Author Name'}">
+<title>${cleanTitle}</title>
+<meta name="description" content="${cleanDesc}">
+<meta name="keywords" content="${cleanKeywords}">
+<meta name="author" content="${cleanAuthor}">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="${url || 'https://yourwebsite.com/'}">
-<meta property="og:title" content="${title || 'Your Page Title'}">
-<meta property="og:description" content="${description || 'Your page description'}">
-<meta property="og:image" content="${ogImage || 'https://yourwebsite.com/image.jpg'}">
+<meta property="og:url" content="${cleanUrl}">
+<meta property="og:title" content="${cleanTitle}">
+<meta property="og:description" content="${cleanDesc}">
+<meta property="og:image" content="${cleanImage}">
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="${url || 'https://yourwebsite.com/'}">
-<meta property="twitter:title" content="${title || 'Your Page Title'}">
-<meta property="twitter:description" content="${description || 'Your page description'}">
-<meta property="twitter:image" content="${ogImage || 'https://yourwebsite.com/image.jpg'}">`;
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="${cleanUrl}">
+<meta name="twitter:title" content="${cleanTitle}">
+<meta name="twitter:description" content="${cleanDesc}">
+<meta name="twitter:image" content="${cleanImage}">`;
 
     return tags;
   };
