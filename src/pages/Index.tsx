@@ -20,7 +20,7 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground mb-2">Trusted by users worldwide</p>
                 <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-center">
                   <div>
-                    <p className="text-2xl md:text-3xl font-bold text-primary">10,000+</p>
+                    <p className="text-2xl md:text-3xl font-bold text-primary">500+</p>
                     <p className="text-xs md:text-sm text-muted-foreground">Active Users</p>
                   </div>
                   <div>
