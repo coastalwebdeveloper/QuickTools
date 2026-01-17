@@ -112,6 +112,7 @@ const JSONToCSV = () => {
             onChange={(e) => setJsonInput(e.target.value)}
             rows={10}
             className="font-mono text-sm"
+            spellCheck={false}
           />
         </div>
 
@@ -134,6 +135,7 @@ const JSONToCSV = () => {
               readOnly
               rows={10}
               className="font-mono text-sm"
+              spellCheck={false}
             />
           </div>
         )}
