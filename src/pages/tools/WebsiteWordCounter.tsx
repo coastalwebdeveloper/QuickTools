@@ -11,6 +11,7 @@ const WebsiteWordCounter = () => {
   const [url, setUrl] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [stats, setStats] = useState<any>(null);
+  const [mainContentOnly, setMainContentOnly] = useState(true);
 
   const analyzeWebsite = async () => {
     if (!url.trim()) {
@@ -25,7 +26,7 @@ const WebsiteWordCounter = () => {
 
     setIsAnalyzing(true);
     try {
-      const response = await fetch(`/api/analyze-url?url=${encodeURIComponent(url)}`);
+      const response = await fetch(`/api/analyze-url?url=${encodeURIComponent(url)}&mainOnly=${mainContentOnly}`);
       
       if (!response.ok) {
         const error = await response.json();
@@ -41,6 +42,23 @@ const WebsiteWordCounter = () => {
     } finally {
       setIsAnalyzing(false);
     }
+  };
+
+  const calculateFleschScore = (words: number, sentences: number) => {
+    if (sentences === 0) return 0;
+    const avgWordsPerSentence = words / sentences;
+    const score = 206.835 - 1.015 * avgWordsPerSentence;
+    return Math.max(0, Math.min(100, Math.round(score)));
+  };
+
+  const getReadingLevel = (score: number) => {
+    if (score >= 90) return "Very Easy";
+    if (score >= 80) return "Easy";
+    if (score >= 70) return "Fairly Easy";
+    if (score >= 60) return "Standard";
+    if (score >= 50) return "Fairly Difficult";
+    if (score >= 30) return "Difficult";
+    return "Very Difficult";
   };
 
   const relatedTools = [
@@ -80,35 +98,68 @@ const WebsiteWordCounter = () => {
               </Button>
             </div>
           </div>
+          
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="mainContent"
+              checked={mainContentOnly}
+              onChange={(e) => setMainContentOnly(e.target.checked)}
+              className="w-4 h-4"
+            />
+            <label htmlFor="mainContent" className="text-sm">
+              Main content only (exclude navigation, footer, sidebar)
+            </label>
+          </div>
         </div>
 
         {stats && (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Words</p>
-              <p className="text-2xl font-bold">{stats.words.toLocaleString()}</p>
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Words</p>
+                <p className="text-2xl font-bold">{stats.words.toLocaleString()}</p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Characters</p>
+                <p className="text-2xl font-bold">{stats.characters.toLocaleString()}</p>
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Paragraphs</p>
+                <p className="text-2xl font-bold">{stats.paragraphs}</p>
+              </div>
+              <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Sentences</p>
+                <p className="text-2xl font-bold">{stats.sentences}</p>
+              </div>
+              <div className="p-4 bg-pink-50 dark:bg-pink-900/20 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Reading Time</p>
+                <p className="text-2xl font-bold">{stats.readingTime} min</p>
+              </div>
+              <div className="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Headings</p>
+                <p className="text-sm font-medium">
+                  H1: {stats.headings.h1} | H2: {stats.headings.h2} | H3: {stats.headings.h3}
+                </p>
+              </div>
             </div>
-            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Characters</p>
-              <p className="text-2xl font-bold">{stats.characters.toLocaleString()}</p>
-            </div>
-            <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Paragraphs</p>
-              <p className="text-2xl font-bold">{stats.paragraphs}</p>
-            </div>
-            <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Sentences</p>
-              <p className="text-2xl font-bold">{stats.sentences}</p>
-            </div>
-            <div className="p-4 bg-pink-50 dark:bg-pink-900/20 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Reading Time</p>
-              <p className="text-2xl font-bold">{stats.readingTime} min</p>
-            </div>
-            <div className="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Headings</p>
-              <p className="text-sm font-medium">
-                H1: {stats.headings.h1} | H2: {stats.headings.h2} | H3: {stats.headings.h3}
-              </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Avg Words per Paragraph</p>
+                <p className="text-2xl font-bold">
+                  {stats.paragraphs > 0 ? Math.round(stats.words / stats.paragraphs) : 0}
+                </p>
+              </div>
+              <div className="p-4 bg-teal-50 dark:bg-teal-900/20 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Reading Level</p>
+                <p className="text-2xl font-bold">
+                  {getReadingLevel(calculateFleschScore(stats.words, stats.sentences))}
+                </p>
+                <p className="text-xs text-gray-500 mt-1">
+                  Flesch Score: {calculateFleschScore(stats.words, stats.sentences)}
+                </p>
+              </div>
             </div>
           </div>
         )}

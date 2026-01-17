@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { url } = req.query;
+  const { url, mainOnly } = req.query;
 
   if (!url) {
     return res.status(400).json({ error: 'URL parameter is required' });
@@ -20,7 +20,16 @@ export default async function handler(req, res) {
       throw new Error('Failed to fetch URL');
     }
     
-    const html = await response.text();
+    let html = await response.text();
+    
+    // If mainOnly is true, extract main content
+    if (mainOnly === 'true') {
+      const mainMatch = html.match(/<main[^>]*>(.*?)<\/main>/is) || 
+                        html.match(/<article[^>]*>(.*?)<\/article>/is);
+      if (mainMatch) {
+        html = mainMatch[1];
+      }
+    }
     
     const cleanText = html
       .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
@@ -28,6 +37,7 @@ export default async function handler(req, res) {
       .replace(/<nav\b[^<]*(?:(?!<\/nav>)<[^<]*)*<\/nav>/gi, '')
       .replace(/<header\b[^<]*(?:(?!<\/header>)<[^<]*)*<\/header>/gi, '')
       .replace(/<footer\b[^<]*(?:(?!<\/footer>)<[^<]*)*<\/footer>/gi, '')
+      .replace(/<aside\b[^<]*(?:(?!<\/aside>)<[^<]*)*<\/aside>/gi, '')
       .replace(/<[^>]+>/g, ' ')
       .replace(/&nbsp;/g, ' ')
       .replace(/&[a-z]+;/gi, ' ')
