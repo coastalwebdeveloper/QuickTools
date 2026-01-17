@@ -1048,5 +1048,355 @@ export const toolContentData: Record<string, ToolContentData> = {
       { question: "Is there a limit to the range?", answer: "You can use any range from very small to very large numbers." },
       { question: "Can I generate decimal numbers?", answer: "The current version generates integers. Decimal support may be added in future updates." }
     ]
+  },
+  "pdf-to-ppt": {
+    description: "Convert PDF documents to PowerPoint presentations (PPTX) for easy editing and presenting. Extract content from PDFs and transform them into editable slides perfect for business presentations, educational materials, and professional slideshows.",
+    howToUse: [
+      "Upload your PDF file",
+      "Click 'Convert to PPT'",
+      "Wait for processing to complete",
+      "Download the PowerPoint file (.pptx)",
+      "Open in Microsoft PowerPoint or Google Slides"
+    ],
+    benefits: [
+      "Convert PDFs to editable presentations",
+      "Maintains page layout as slides",
+      "Preserves images and text",
+      "Browser-based processing",
+      "No file uploads to servers",
+      "Free unlimited conversions",
+      "Compatible with PowerPoint and Google Slides"
+    ],
+    useCases: [
+      "Converting PDF reports to presentations",
+      "Editing existing presentation PDFs",
+      "Creating slideshows from documents",
+      "Repurposing PDF content for meetings",
+      "Educational material conversion",
+      "Business proposal editing",
+      "Training material preparation"
+    ],
+    faq: [
+      { question: "Will formatting be preserved?", answer: "Each PDF page becomes a slide. Basic layout is preserved, but complex formatting may need adjustment." },
+      { question: "Can I edit the PowerPoint after conversion?", answer: "Yes, the output is a fully editable .pptx file compatible with PowerPoint and Google Slides." },
+      { question: "Are my PDFs uploaded anywhere?", answer: "No. All conversion happens in your browser. Your files never leave your device." },
+      { question: "What about images in the PDF?", answer: "Images are preserved and embedded in the PowerPoint slides." },
+      { question: "Can I convert multi-page PDFs?", answer: "Yes, each page becomes a separate slide in the presentation." }
+    ]
+  },
+  "word-to-pdf": {
+    description: "Convert Microsoft Word documents (.docx) to PDF format for universal compatibility and professional sharing. Create PDF files from Word documents that maintain formatting, fonts, and layout across all devices and platforms.",
+    howToUse: [
+      "Upload your Word document (.docx)",
+      "Click 'Convert to PDF'",
+      "Wait for processing",
+      "Download the PDF file",
+      "Share or print your PDF"
+    ],
+    benefits: [
+      "Universal PDF compatibility",
+      "Preserves formatting and fonts",
+      "Maintains document layout",
+      "Browser-based processing",
+      "No file uploads to servers",
+      "Free unlimited conversions",
+      "Works offline after load"
+    ],
+    useCases: [
+      "Creating professional documents for sharing",
+      "Submitting resumes and applications",
+      "Sharing reports and proposals",
+      "Creating print-ready documents",
+      "Archiving documents in PDF format",
+      "Protecting document formatting",
+      "Creating forms and contracts"
+    ],
+    faq: [
+      { question: "Will all formatting be preserved?", answer: "Yes, fonts, colors, images, and layout are maintained in the PDF output." },
+      { question: "Can I convert .doc files?", answer: "This tool works with .docx format. Convert .doc to .docx first in Word." },
+      { question: "Are my documents uploaded anywhere?", answer: "No. All conversion happens in your browser. Your files never leave your device." },
+      { question: "Will hyperlinks work in the PDF?", answer: "Yes, hyperlinks and bookmarks are preserved in the PDF." },
+      { question: "Can I password-protect the PDF?", answer: "Password protection may be added in future updates." }
+    ]
+  },
+  "image-to-pdf": {
+    description: "Convert images (JPG, PNG, WebP) to PDF documents. Combine multiple images into a single PDF file perfect for creating photo albums, portfolios, documentation, or archiving scanned documents.",
+    howToUse: [
+      "Upload one or multiple images",
+      "Arrange images in desired order",
+      "Choose page size and orientation",
+      "Click 'Create PDF'",
+      "Download your PDF document"
+    ],
+    benefits: [
+      "Combine multiple images into one PDF",
+      "Drag-and-drop image reordering",
+      "Custom page sizes (A4, Letter, etc.)",
+      "Portrait or landscape orientation",
+      "Browser-based processing",
+      "No file uploads to servers",
+      "Free unlimited conversions"
+    ],
+    useCases: [
+      "Creating photo albums and portfolios",
+      "Combining scanned documents",
+      "Creating presentation handouts",
+      "Archiving receipts and invoices",
+      "Creating digital catalogs",
+      "Compiling design mockups",
+      "Creating instruction manuals"
+    ],
+    faq: [
+      { question: "How many images can I convert?", answer: "You can add unlimited images. The only limit is your browser's memory." },
+      { question: "Can I change the order of images?", answer: "Yes, drag and drop images to reorder them before creating the PDF." },
+      { question: "What image formats are supported?", answer: "JPG, JPEG, PNG, WebP, and most common image formats are supported." },
+      { question: "Are my images uploaded anywhere?", answer: "No. All processing happens in your browser. Your images never leave your device." },
+      { question: "Can I adjust image quality?", answer: "Yes, you can choose compression settings to balance quality and file size." }
+    ]
+  },
+  "remove-pdf-password": {
+    description: "Remove password protection from PDF files you own or have permission to unlock. Decrypt password-protected PDFs to enable editing, printing, and copying. Important: Only use this tool on PDFs you own or have explicit permission to unlock.",
+    howToUse: [
+      "Upload your password-protected PDF",
+      "Enter the password",
+      "Click 'Remove Password'",
+      "Wait for processing",
+      "Download the unlocked PDF"
+    ],
+    benefits: [
+      "Remove PDF password restrictions",
+      "Enable editing and printing",
+      "Allow content copying",
+      "Browser-based processing",
+      "No file uploads to servers",
+      "Free unlimited unlocking",
+      "Works offline after load"
+    ],
+    useCases: [
+      "Unlocking your own protected documents",
+      "Removing forgotten passwords",
+      "Enabling editing on archived files",
+      "Preparing documents for collaboration",
+      "Removing unnecessary restrictions",
+      "Accessing legacy protected files",
+      "Simplifying document workflows"
+    ],
+    faq: [
+      { question: "Is this legal?", answer: "Yes, when used on PDFs you own or have permission to unlock. Never use this tool on copyrighted or protected content without authorization." },
+      { question: "Can it crack unknown passwords?", answer: "No. You must know the password to unlock the PDF. This tool removes protection after authentication." },
+      { question: "Are my PDFs uploaded anywhere?", answer: "No. All processing happens in your browser. Your files never leave your device." },
+      { question: "What if I don't know the password?", answer: "You must have the password to unlock the PDF. This tool cannot crack or guess passwords." },
+      { question: "Will the PDF be modified?", answer: "Only the password protection is removed. All content, formatting, and quality remain unchanged." }
+    ]
+  },
+  "image-to-text": {
+    description: "Extract text from images using advanced Optical Character Recognition (OCR) technology. Convert screenshots, photos of documents, scanned papers, and any image containing text into editable, searchable text that you can copy, edit, and reuse.",
+    howToUse: [
+      "Upload an image containing text (JPG, PNG, WebP)",
+      "Click 'Extract Text'",
+      "Wait for OCR processing (5-15 seconds)",
+      "View extracted text",
+      "Copy or download the text"
+    ],
+    benefits: [
+      "Advanced OCR technology",
+      "High accuracy text extraction",
+      "Supports multiple languages",
+      "Copy and edit extracted text",
+      "Browser-based processing",
+      "No image uploads to servers",
+      "Free unlimited extractions"
+    ],
+    useCases: [
+      "Extracting text from screenshots",
+      "Digitizing printed documents",
+      "Converting photos to text",
+      "Extracting text from receipts",
+      "Processing business cards",
+      "Converting book pages to text",
+      "Extracting text from infographics"
+    ],
+    faq: [
+      { question: "How accurate is the OCR?", answer: "Accuracy depends on image quality. Clear, high-resolution images with good contrast produce best results (95%+ accuracy)." },
+      { question: "What languages are supported?", answer: "The tool supports English and most Latin-based languages. Additional language support may be added." },
+      { question: "Can it read handwriting?", answer: "OCR works best with printed or typed text. Handwriting recognition is limited and depends on legibility." },
+      { question: "Are my images uploaded anywhere?", answer: "No. All OCR processing happens in your browser. Your images never leave your device." },
+      { question: "What image quality works best?", answer: "Use high-resolution images (300+ DPI) with good contrast and clear text for optimal results." }
+    ]
+  },
+  "youtube-thumbnail-downloader": {
+    description: "Download YouTube video thumbnails in high quality (HD, Full HD, and maximum resolution). Extract thumbnail images from any YouTube video for use in presentations, social media, or content creation. Note: This tool only downloads thumbnail images, not videos.",
+    howToUse: [
+      "Paste YouTube video URL or ID",
+      "Click 'Get Thumbnails'",
+      "View available thumbnail sizes",
+      "Select desired quality (SD, HD, Full HD, Max)",
+      "Download the thumbnail image"
+    ],
+    benefits: [
+      "Download thumbnails in multiple resolutions",
+      "Maximum quality available (1920x1080)",
+      "Instant thumbnail preview",
+      "No registration required",
+      "Browser-based processing",
+      "Free unlimited downloads",
+      "Works with any YouTube video"
+    ],
+    useCases: [
+      "Creating video previews for websites",
+      "Social media content creation",
+      "Presentation materials",
+      "Blog post featured images",
+      "Video analysis and research",
+      "Content creator resources",
+      "Educational materials"
+    ],
+    faq: [
+      { question: "Can I download videos?", answer: "No. This tool only downloads thumbnail images. Video downloading is not supported." },
+      { question: "What resolutions are available?", answer: "Thumbnails are available in SD (480x360), HD (1280x720), and Max (1920x1080) depending on the video." },
+      { question: "Do I need a YouTube account?", answer: "No. You only need the video URL or ID to download thumbnails." },
+      { question: "Is this legal?", answer: "Downloading thumbnails for fair use (research, education, commentary) is generally acceptable. Respect copyright and YouTube's terms of service." },
+      { question: "Can I download from private videos?", answer: "No. Only thumbnails from public YouTube videos can be downloaded." }
+    ]
+  },
+  "html-formatter": {
+    description: "Format, beautify, and clean HTML code with proper indentation and structure. Transform minified or messy HTML into readable, well-organized code perfect for development, debugging, and learning. Supports HTML5 and includes syntax validation.",
+    howToUse: [
+      "Paste your HTML code",
+      "Click 'Format HTML'",
+      "View beautified code with proper indentation",
+      "Copy formatted HTML",
+      "Use in your projects"
+    ],
+    benefits: [
+      "Automatic code indentation",
+      "Proper tag nesting",
+      "Syntax highlighting",
+      "Minify or beautify options",
+      "Error detection",
+      "Browser-based processing",
+      "Free unlimited formatting"
+    ],
+    useCases: [
+      "Beautifying minified HTML",
+      "Cleaning up messy code",
+      "Learning HTML structure",
+      "Code review preparation",
+      "Debugging HTML issues",
+      "Standardizing code formatting",
+      "Preparing code for documentation"
+    ],
+    faq: [
+      { question: "Can it fix HTML errors?", answer: "The formatter improves structure and indentation but doesn't automatically fix syntax errors. It will highlight issues for manual correction." },
+      { question: "Does it support HTML5?", answer: "Yes, the formatter fully supports HTML5 tags and attributes." },
+      { question: "Can I minify HTML?", answer: "Yes, you can both beautify (add formatting) and minify (remove formatting) HTML code." },
+      { question: "Is my code stored anywhere?", answer: "No. All formatting happens in your browser. Your code never leaves your device." },
+      { question: "Does it work with inline CSS and JavaScript?", answer: "Yes, the formatter handles inline styles and scripts within HTML." }
+    ]
+  },
+  "json-to-csv": {
+    description: "Convert JSON data to CSV (Comma-Separated Values) format for use in Excel, Google Sheets, and databases. Transform complex JSON structures into tabular CSV format perfect for data analysis, reporting, and spreadsheet applications.",
+    howToUse: [
+      "Paste your JSON data",
+      "Click 'Convert to CSV'",
+      "Preview the CSV output",
+      "Download the CSV file",
+      "Open in Excel or Google Sheets"
+    ],
+    benefits: [
+      "Convert JSON arrays to CSV",
+      "Handles nested objects",
+      "Automatic header generation",
+      "Preview before download",
+      "Browser-based processing",
+      "No data uploads to servers",
+      "Free unlimited conversions"
+    ],
+    useCases: [
+      "Exporting API data to spreadsheets",
+      "Converting database exports",
+      "Data analysis in Excel",
+      "Creating reports from JSON",
+      "Importing data to databases",
+      "Processing survey results",
+      "Analytics data conversion"
+    ],
+    faq: [
+      { question: "Can it handle nested JSON?", answer: "Yes, nested objects are flattened with dot notation (e.g., user.name becomes a column)." },
+      { question: "What if JSON has arrays?", answer: "Arrays are converted to comma-separated values within cells or expanded to multiple rows depending on structure." },
+      { question: "Is my data stored anywhere?", answer: "No. All conversion happens in your browser. Your data never leaves your device." },
+      { question: "Can I customize the CSV format?", answer: "You can choose delimiter (comma, semicolon, tab) and quote character options." },
+      { question: "Does it validate JSON?", answer: "Yes, the tool validates JSON syntax and shows errors if the input is invalid." }
+    ]
+  },
+  "meta-tag-generator": {
+    description: "Generate SEO-optimized meta tags for your website including title, description, Open Graph tags, Twitter Cards, and more. Create professional meta tags that improve search engine rankings, social media sharing, and click-through rates.",
+    howToUse: [
+      "Enter your page title",
+      "Write a compelling meta description",
+      "Add keywords and author information",
+      "Configure Open Graph and Twitter Card settings",
+      "Copy generated meta tags to your HTML"
+    ],
+    benefits: [
+      "Complete meta tag generation",
+      "SEO-optimized templates",
+      "Open Graph and Twitter Card support",
+      "Character count validation",
+      "Preview how tags appear",
+      "Browser-based processing",
+      "Free unlimited generation"
+    ],
+    useCases: [
+      "Optimizing website SEO",
+      "Improving social media sharing",
+      "Creating landing pages",
+      "Blog post optimization",
+      "E-commerce product pages",
+      "Portfolio websites",
+      "Business websites"
+    ],
+    faq: [
+      { question: "What are meta tags?", answer: "Meta tags are HTML elements that provide information about your webpage to search engines and social media platforms." },
+      { question: "Why are meta tags important?", answer: "They improve SEO rankings, control how your content appears in search results and social media, and increase click-through rates." },
+      { question: "What's the ideal meta description length?", answer: "150-160 characters is optimal. The tool validates length and warns if too long or short." },
+      { question: "Do I need Open Graph tags?", answer: "Yes, if you want your content to look good when shared on Facebook, LinkedIn, and other social platforms." },
+      { question: "Can I preview how tags will look?", answer: "Yes, the tool shows previews of how your page will appear in search results and social media." }
+    ]
+  },
+  "website-word-counter": {
+    description: "Count words, characters, and analyze text content on any website by entering its URL. Perfect for SEO analysis, content auditing, competitor research, and ensuring your web pages meet content length requirements for optimal search engine rankings.",
+    howToUse: [
+      "Enter the website URL",
+      "Click 'Count Words'",
+      "Wait for page analysis",
+      "View word count, character count, and statistics",
+      "See paragraph and heading counts"
+    ],
+    benefits: [
+      "Analyze any public website",
+      "Comprehensive text statistics",
+      "SEO content length analysis",
+      "Heading structure analysis",
+      "Reading time estimation",
+      "Free unlimited analysis",
+      "No registration required"
+    ],
+    useCases: [
+      "SEO content length analysis",
+      "Competitor content research",
+      "Content audit and planning",
+      "Blog post length checking",
+      "Landing page optimization",
+      "Content strategy development",
+      "Website content inventory"
+    ],
+    faq: [
+      { question: "How does it work?", answer: "The tool fetches the webpage content and analyzes visible text, excluding navigation, scripts, and hidden elements." },
+      { question: "Can it analyze password-protected pages?", answer: "No. Only publicly accessible web pages can be analyzed." },
+      { question: "Does it count navigation and footer text?", answer: "The tool focuses on main content and can filter out common navigation and footer elements." },
+      { question: "Is the website data stored?", answer: "No. Analysis happens in real-time and no data is stored." },
+      { question: "Can I analyze multiple pages?", answer: "Yes, analyze as many URLs as needed. Each URL is processed separately." }
+    ]
   }
 };

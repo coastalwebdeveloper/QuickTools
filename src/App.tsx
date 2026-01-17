@@ -57,6 +57,16 @@ import OCRPDF from "./pages/tools/OCRPDF";
 import ImageBackgroundRemover from "./pages/tools/ImageBackgroundRemover";
 import ImageToWebP from "./pages/tools/ImageToWebP";
 import URLShortener from "./pages/tools/URLShortener";
+import PDFToPPT from "./pages/tools/PDFToPPT";
+import WordToPDF from "./pages/tools/WordToPDF";
+import ImageToPDF from "./pages/tools/ImageToPDF";
+import RemovePDFPassword from "./pages/tools/RemovePDFPassword";
+import ImageToText from "./pages/tools/ImageToText";
+import YoutubeThumbnailDownloader from "./pages/tools/YoutubeThumbnailDownloader";
+import HTMLFormatter from "./pages/tools/HTMLFormatter";
+import JSONToCSV from "./pages/tools/JSONToCSV";
+import MetaTagGenerator from "./pages/tools/MetaTagGenerator";
+import WebsiteWordCounter from "./pages/tools/WebsiteWordCounter";
 
 const queryClient = new QueryClient();
 
@@ -107,11 +117,13 @@ const App = () => (
           <Route path="/tools/case-converter" element={<CaseConverter />} />
           <Route path="/tools/text-cleaner" element={<TextCleaner />} />
           <Route path="/tools/text-diff" element={<TextDiff />} />
+          <Route path="/tools/html-formatter" element={<HTMLFormatter />} />
           
           {/* Converters */}
           <Route path="/tools/color-converter" element={<ColorConverter />} />
           <Route path="/tools/unit-converter" element={<UnitConverter />} />
           <Route path="/tools/base64-tool" element={<Base64Tool />} />
+          <Route path="/tools/json-to-csv" element={<JSONToCSV />} />
           
           {/* Calculators */}
           <Route path="/tools/bmi-calculator" element={<BMICalculator />} />
@@ -127,6 +139,10 @@ const App = () => (
           <Route path="/tools/pdf-to-excel" element={<PDFToExcel />} />
           <Route path="/tools/ocr-pdf" element={<OCRPDF />} />
           <Route path="/tools/pdf-to-images" element={<PDFToImages />} />
+          <Route path="/tools/pdf-to-ppt" element={<PDFToPPT />} />
+          <Route path="/tools/word-to-pdf" element={<WordToPDF />} />
+          <Route path="/tools/image-to-pdf" element={<ImageToPDF />} />
+          <Route path="/tools/remove-pdf-password" element={<RemovePDFPassword />} />
           
           {/* Image Tools */}
           <Route path="/tools/image-background-remover" element={<ImageBackgroundRemover />} />
@@ -134,6 +150,7 @@ const App = () => (
           <Route path="/tools/image-compressor" element={<ImageCompressor />} />
           <Route path="/tools/image-resizer" element={<ImageResizer />} />
           <Route path="/tools/image-cropper" element={<ImageCropper />} />
+          <Route path="/tools/image-to-text" element={<ImageToText />} />
           
           {/* Misc Tools */}
           <Route path="/tools/url-shortener" element={<URLShortener />} />
@@ -141,6 +158,9 @@ const App = () => (
           <Route path="/tools/qr-generator" element={<QRGenerator />} />
           <Route path="/tools/stopwatch" element={<Stopwatch />} />
           <Route path="/tools/random-number" element={<RandomNumber />} />
+          <Route path="/tools/youtube-thumbnail-downloader" element={<YoutubeThumbnailDownloader />} />
+          <Route path="/tools/meta-tag-generator" element={<MetaTagGenerator />} />
+          <Route path="/tools/website-word-counter" element={<WebsiteWordCounter />} />
           
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />

@@ -32,6 +32,15 @@ import {
   ScanText,
   Link,
   ImageMinus,
+  FileType,
+  FileOutput,
+  LockOpen,
+  ScanEye,
+  Youtube,
+  Code2,
+  FileJson,
+  Tags,
+  Globe,
 } from "lucide-react";
 
 export interface Tool {
@@ -125,6 +134,42 @@ export const tools: Tool[] = [
     path: "/tools/pdf-to-images",
     color: "bg-pink-500/10 text-pink-600 dark:text-pink-400",
   },
+  {
+    id: "pdf-to-ppt",
+    name: "PDF to PPT",
+    description: "Convert PDF documents to PowerPoint presentations",
+    icon: FileType,
+    category: "pdf",
+    path: "/tools/pdf-to-ppt",
+    color: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
+  },
+  {
+    id: "word-to-pdf",
+    name: "Word to PDF",
+    description: "Convert Word documents to PDF format",
+    icon: FileOutput,
+    category: "pdf",
+    path: "/tools/word-to-pdf",
+    color: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
+  },
+  {
+    id: "image-to-pdf",
+    name: "Image to PDF",
+    description: "Convert images to PDF documents",
+    icon: FileText,
+    category: "pdf",
+    path: "/tools/image-to-pdf",
+    color: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
+  },
+  {
+    id: "remove-pdf-password",
+    name: "Remove PDF Password",
+    description: "Unlock password-protected PDF files",
+    icon: LockOpen,
+    category: "pdf",
+    path: "/tools/remove-pdf-password",
+    color: "bg-rose-500/10 text-rose-600 dark:text-rose-400",
+  },
   // Image Tools
   {
     id: "image-background-remover",
@@ -171,6 +216,15 @@ export const tools: Tool[] = [
     path: "/tools/image-cropper",
     color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
   },
+  {
+    id: "image-to-text",
+    name: "Image to Text (OCR)",
+    description: "Extract text from images using OCR technology",
+    icon: ScanEye,
+    category: "image",
+    path: "/tools/image-to-text",
+    color: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+  },
   // Converters
   {
     id: "unit-converter",
@@ -189,6 +243,15 @@ export const tools: Tool[] = [
     category: "converter",
     path: "/tools/color-converter",
     color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
+  },
+  {
+    id: "json-to-csv",
+    name: "JSON to CSV",
+    description: "Convert JSON data to CSV format",
+    icon: FileJson,
+    category: "converter",
+    path: "/tools/json-to-csv",
+    color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
   },
   // Text Tools
   {
@@ -226,6 +289,15 @@ export const tools: Tool[] = [
     category: "text",
     path: "/tools/text-diff",
     color: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+  },
+  {
+    id: "html-formatter",
+    name: "HTML Formatter",
+    description: "Format and beautify HTML code",
+    icon: Code2,
+    category: "text",
+    path: "/tools/html-formatter",
+    color: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
   },
   // Calculators
   {
@@ -309,6 +381,33 @@ export const tools: Tool[] = [
     category: "misc",
     path: "/tools/random-number",
     color: "bg-sky-500/10 text-sky-600 dark:text-sky-400",
+  },
+  {
+    id: "youtube-thumbnail-downloader",
+    name: "YouTube Thumbnail Downloader",
+    description: "Download YouTube video thumbnails in high quality",
+    icon: Youtube,
+    category: "misc",
+    path: "/tools/youtube-thumbnail-downloader",
+    color: "bg-red-500/10 text-red-600 dark:text-red-400",
+  },
+  {
+    id: "meta-tag-generator",
+    name: "Meta Tag Generator",
+    description: "Generate SEO meta tags for your website",
+    icon: Tags,
+    category: "misc",
+    path: "/tools/meta-tag-generator",
+    color: "bg-purple-500/10 text-purple-600 dark:text-purple-400",
+  },
+  {
+    id: "website-word-counter",
+    name: "Website Word Counter",
+    description: "Count words on any website by URL",
+    icon: Globe,
+    category: "misc",
+    path: "/tools/website-word-counter",
+    color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
   },
   {
     id: "base64-tool",
