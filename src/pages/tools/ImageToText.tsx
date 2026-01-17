@@ -13,6 +13,7 @@ const ImageToText = () => {
   const [preview, setPreview] = useState<string>("");
   const [extractedText, setExtractedText] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [cleanText, setCleanText] = useState(true);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -27,19 +28,52 @@ const ImageToText = () => {
     }
   };
 
+  const cleanOCRText = (lines: any[]) => {
+    if (!lines || lines.length === 0) return '';
+    
+    return lines
+      .filter(line => line.confidence > 70)
+      .sort((a, b) => {
+        const yDiff = Math.abs(a.bbox.y0 - b.bbox.y0);
+        if (yDiff < 10) {
+          return a.bbox.x0 - b.bbox.x0;
+        }
+        return a.bbox.y0 - b.bbox.y0;
+      })
+      .map(line => line.text.trim())
+      .filter(text => {
+        if (!text || text.length < 2) return false;
+        
+        const letterCount = (text.match(/[a-zA-Z]/g) || []).length;
+        const digitCount = (text.match(/[0-9]/g) || []).length;
+        const specialCount = (text.match(/[^a-zA-Z0-9\s]/g) || []).length;
+        const totalChars = text.length;
+        
+        if (specialCount / totalChars > 0.5) return false;
+        if (letterCount + digitCount < totalChars * 0.6) return false;
+        if (text.match(/^[^a-zA-Z0-9]+$/)) return false;
+        
+        return true;
+      })
+      .filter((text, index, arr) => arr.indexOf(text) === index)
+      .join('\n');
+  };
+
   const extractText = async () => {
     if (!image) return;
 
     setIsProcessing(true);
     try {
       const worker = await createWorker('eng');
-      const { data: { text } } = await worker.recognize(preview);
+      const { data } = await worker.recognize(preview);
       await worker.terminate();
       
-      setExtractedText(text);
+      const text = cleanText && data.lines ? cleanOCRText(data.lines) : data.text;
+      setExtractedText(text || 'No text found in image');
       toast.success("Text extracted successfully!");
-    } catch (error) {
-      toast.error("Error extracting text");
+    } catch (error: any) {
+      console.error(error);
+      toast.error("Error extracting text: " + (error.message || 'Unknown error'));
     } finally {
       setIsProcessing(false);
     }
@@ -67,7 +101,7 @@ const ImageToText = () => {
       tips={[
         "Use high-resolution images for best results",
         "Clear, well-lit images work best",
-        "Supports printed and typed text",
+        "Clean text mode removes low-confidence results",
         "All processing happens in your browser"
       ]}
     >
@@ -96,6 +130,19 @@ const ImageToText = () => {
           <div className="space-y-4">
             <div className="border rounded-lg overflow-hidden">
               <img src={preview} alt="Preview" className="w-full max-h-96 object-contain" />
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="cleanText"
+                checked={cleanText}
+                onChange={(e) => setCleanText(e.target.checked)}
+                className="w-4 h-4"
+              />
+              <label htmlFor="cleanText" className="text-sm">
+                Clean extracted text (recommended - removes low confidence and garbage text)
+              </label>
             </div>
             
             <Button onClick={extractText} disabled={isProcessing} className="w-full">
