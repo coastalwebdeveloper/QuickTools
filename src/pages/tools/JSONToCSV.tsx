@@ -31,19 +31,36 @@ const JSONToCSV = () => {
         return;
       }
 
-      // Get all unique keys
-      const keys = Array.from(new Set(data.flatMap(obj => Object.keys(obj))));
+      // Flatten nested objects
+      const flattenObject = (obj: any, prefix = ''): any => {
+        return Object.keys(obj).reduce((acc: any, key: string) => {
+          const value = obj[key];
+          const newKey = prefix ? `${prefix}.${key}` : key;
+          
+          if (value === null || value === undefined) {
+            acc[newKey] = '';
+          } else if (Array.isArray(value)) {
+            acc[newKey] = JSON.stringify(value);
+          } else if (typeof value === 'object') {
+            Object.assign(acc, flattenObject(value, newKey));
+          } else {
+            acc[newKey] = value;
+          }
+          
+          return acc;
+        }, {});
+      };
+
+      const flatData = data.map(item => flattenObject(item));
+      const keys = Array.from(new Set(flatData.flatMap(obj => Object.keys(obj))));
       
-      // Create CSV header
       const header = keys.join(',');
       
-      // Create CSV rows
-      const rows = data.map(obj => {
+      const rows = flatData.map(obj => {
         return keys.map(key => {
           const value = obj[key];
           if (value === null || value === undefined) return '';
           const str = String(value);
-          // Escape quotes and wrap in quotes if contains comma or quote
           if (str.includes(',') || str.includes('"') || str.includes('\n')) {
             return `"${str.replace(/"/g, '""')}"`;
           }
