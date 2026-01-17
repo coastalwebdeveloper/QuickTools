@@ -162,12 +162,12 @@ export const tools: Tool[] = [
     color: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
   },
   {
-    id: "remove-pdf-password",
-    name: "Remove PDF Password",
-    description: "Unlock password-protected PDF files",
-    icon: LockOpen,
+    id: "pdf-password-protector",
+    name: "PDF Password Protector",
+    description: "Add password protection to PDF files",
+    icon: Lock,
     category: "pdf",
-    path: "/tools/remove-pdf-password",
+    path: "/tools/pdf-password-protector",
     color: "bg-rose-500/10 text-rose-600 dark:text-rose-400",
   },
   // Image Tools

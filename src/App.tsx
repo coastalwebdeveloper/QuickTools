@@ -142,7 +142,7 @@ const App = () => (
           <Route path="/tools/pdf-to-ppt" element={<PDFToPPT />} />
           <Route path="/tools/word-to-pdf" element={<WordToPDF />} />
           <Route path="/tools/image-to-pdf" element={<ImageToPDF />} />
-          <Route path="/tools/remove-pdf-password" element={<RemovePDFPassword />} />
+          <Route path="/tools/pdf-password-protector" element={<RemovePDFPassword />} />
           
           {/* Image Tools */}
           <Route path="/tools/image-background-remover" element={<ImageBackgroundRemover />} />

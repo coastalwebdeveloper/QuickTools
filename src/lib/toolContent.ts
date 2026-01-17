@@ -1154,39 +1154,39 @@ export const toolContentData: Record<string, ToolContentData> = {
       { question: "Can I adjust image quality?", answer: "Yes, you can choose compression settings to balance quality and file size." }
     ]
   },
-  "remove-pdf-password": {
-    description: "Remove password protection from PDF files you own or have permission to unlock. Decrypt password-protected PDFs to enable editing, printing, and copying. Important: Only use this tool on PDFs you own or have explicit permission to unlock.",
+  "pdf-password-protector": {
+    description: "Add password protection to PDF files to secure sensitive documents. Encrypt PDFs with strong passwords to prevent unauthorized access, copying, or editing. Perfect for protecting confidential reports, contracts, and personal documents.",
     howToUse: [
-      "Upload your password-protected PDF",
-      "Enter the password",
-      "Click 'Remove Password'",
-      "Wait for processing",
-      "Download the unlocked PDF"
+      "Upload your PDF file",
+      "Enter a strong password (minimum 6 characters)",
+      "Confirm your password",
+      "Click 'Protect PDF'",
+      "Download the password-protected PDF"
     ],
     benefits: [
-      "Remove PDF password restrictions",
-      "Enable editing and printing",
-      "Allow content copying",
+      "Secure PDFs with password encryption",
+      "Prevents unauthorized access",
+      "Restricts copying and editing",
       "Browser-based processing",
       "No file uploads to servers",
-      "Free unlimited unlocking",
+      "Free unlimited protection",
       "Works offline after load"
     ],
     useCases: [
-      "Unlocking your own protected documents",
-      "Removing forgotten passwords",
-      "Enabling editing on archived files",
-      "Preparing documents for collaboration",
-      "Removing unnecessary restrictions",
-      "Accessing legacy protected files",
-      "Simplifying document workflows"
+      "Protecting confidential business documents",
+      "Securing personal financial records",
+      "Encrypting contracts and agreements",
+      "Protecting sensitive reports",
+      "Securing medical records",
+      "Protecting intellectual property",
+      "Securing legal documents"
     ],
     faq: [
-      { question: "Is this legal?", answer: "Yes, when used on PDFs you own or have permission to unlock. Never use this tool on copyrighted or protected content without authorization." },
-      { question: "Can it crack unknown passwords?", answer: "No. You must know the password to unlock the PDF. This tool removes protection after authentication." },
-      { question: "Are my PDFs uploaded anywhere?", answer: "No. All processing happens in your browser. Your files never leave your device." },
-      { question: "What if I don't know the password?", answer: "You must have the password to unlock the PDF. This tool cannot crack or guess passwords." },
-      { question: "Will the PDF be modified?", answer: "Only the password protection is removed. All content, formatting, and quality remain unchanged." }
+      { question: "How strong is the encryption?", answer: "The tool uses PDF standard encryption with user and owner passwords to protect your documents." },
+      { question: "Can I recover a forgotten password?", answer: "No. Once encrypted, you must have the password to open the PDF. Store your password securely." },
+      { question: "Are my PDFs uploaded anywhere?", answer: "No. All encryption happens in your browser. Your files never leave your device." },
+      { question: "What restrictions are applied?", answer: "The protected PDF prevents copying, editing, and form filling while allowing high-resolution printing." },
+      { question: "Can I protect already-protected PDFs?", answer: "You need to remove existing protection first before adding new password protection." }
     ]
   },
   "image-to-text": {
