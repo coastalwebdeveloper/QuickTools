@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { toolContentData } from "@/lib/toolContent";
+import { createWorker } from 'tesseract.js';
 
 const ImageToText = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -31,27 +32,15 @@ const ImageToText = () => {
 
     setIsProcessing(true);
     try {
-      // Simulate OCR processing
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      const img = new Image();
+      const worker = await createWorker('eng');
+      const { data: { text } } = await worker.recognize(preview);
+      await worker.terminate();
       
-      img.onload = () => {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx?.drawImage(img, 0, 0);
-        
-        // Simulated text extraction (in production, use Tesseract.js or similar)
-        setTimeout(() => {
-          setExtractedText("OCR text extraction requires Tesseract.js library.\n\nFor production use, install: npm install tesseract.js\n\nThis demo shows the interface. The actual OCR would extract text from your image here.");
-          setIsProcessing(false);
-          toast.success("Text extracted! (Demo mode)");
-        }, 2000);
-      };
-      
-      img.src = preview;
+      setExtractedText(text);
+      toast.success("Text extracted successfully!");
     } catch (error) {
       toast.error("Error extracting text");
+    } finally {
       setIsProcessing(false);
     }
   };
