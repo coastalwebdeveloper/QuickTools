@@ -64,7 +64,8 @@ const HeroSection = () => {
     setSearchQuery("");
   };
 
-  const popularTools = tools.slice(0, 6);
+  const popularToolIds = ['youtube-thumbnail-downloader', 'qr-generator', 'url-shortener', 'image-background-remover', 'image-to-pdf', 'pdf-merge'];
+  const popularTools = popularToolIds.map(id => tools.find(tool => tool.id === id)).filter(Boolean);
 
   return (
     <section className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -131,19 +132,19 @@ const HeroSection = () => {
 
           <div className="mb-8 md:mb-12">
             <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4 md:mb-6">Popular Tools</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
               {popularTools.map((tool) => {
                 const Icon = tool.icon;
                 return (
                   <button
                     key={tool.id}
                     onClick={() => navigate(tool.path)}
-                    className="group p-3 md:p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-lg transition-all duration-200"
+                    className="group p-4 md:p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-lg transition-all duration-200 flex flex-col items-center min-h-[140px] md:min-h-[160px]"
                   >
-                    <div className={`p-2 md:p-3 rounded-lg ${tool.color} mb-2 md:mb-3 mx-auto w-fit`}>
+                    <div className={`p-2 md:p-3 rounded-lg ${tool.color} mb-3 md:mb-4 flex items-center justify-center w-12 h-12 md:w-14 md:h-14`}>
                       <Icon className="w-5 h-5 md:w-6 md:h-6" />
                     </div>
-                    <p className="text-xs md:text-sm font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                    <p className="text-xs md:text-sm font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 text-center leading-tight">
                       {tool.name}
                     </p>
                   </button>
