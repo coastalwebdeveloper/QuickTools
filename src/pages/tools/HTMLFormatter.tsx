@@ -16,14 +16,14 @@ const HTMLFormatter = () => {
   const [output, setOutput] = useState("");
   const [indentSize, setIndentSize] = useState(2);
 
-  const formatHTML = () => {
+  const formatHTML = async () => {
     if (!input.trim()) {
       toast.error("Please enter HTML code");
       return;
     }
 
     try {
-      const formatted = prettier.format(input, {
+      const formatted = await prettier.format(input, {
         parser: "html",
         plugins: [parserHtml, parserPostcss, parserBabel],
         tabWidth: indentSize,
