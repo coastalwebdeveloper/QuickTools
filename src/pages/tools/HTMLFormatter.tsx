@@ -6,10 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { toolContentData } from "@/lib/toolContent";
+import prettier from "prettier/standalone";
+import parserHtml from "prettier/parser-html";
+import parserPostcss from "prettier/parser-postcss";
+import parserBabel from "prettier/parser-babel";
 
 const HTMLFormatter = () => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [indentSize, setIndentSize] = useState(2);
 
   const formatHTML = () => {
     if (!input.trim()) {
@@ -18,11 +23,17 @@ const HTMLFormatter = () => {
     }
 
     try {
-      const formatted = beautifyHTML(input);
+      const formatted = prettier.format(input, {
+        parser: "html",
+        plugins: [parserHtml, parserPostcss, parserBabel],
+        tabWidth: indentSize,
+        printWidth: 80,
+        htmlWhitespaceSensitivity: "css"
+      });
       setOutput(formatted);
       toast.success("HTML formatted!");
     } catch (error) {
-      toast.error("Error formatting HTML");
+      toast.error("Error formatting HTML. Check syntax.");
     }
   };
 
@@ -40,22 +51,6 @@ const HTMLFormatter = () => {
     
     setOutput(minified);
     toast.success("HTML minified!");
-  };
-
-  const beautifyHTML = (html: string) => {
-    let formatted = '';
-    let indent = 0;
-    const tab = '  ';
-    
-    html.split(/>\s*</).forEach((node) => {
-      if (node.match(/^\/\w/)) indent--;
-      formatted += tab.repeat(indent) + '<' + node + '>\n';
-      if (node.match(/^<?\w[^>]*[^\/]$/) && !node.startsWith("input") && !node.startsWith("br") && !node.startsWith("img")) {
-        indent++;
-      }
-    });
-    
-    return formatted.substring(1, formatted.length - 2);
   };
 
   const copyOutput = () => {
@@ -79,7 +74,7 @@ const HTMLFormatter = () => {
       toolId="html-formatter"
       tips={[
         "Beautify minified HTML code",
-        "Minify HTML to reduce file size",
+        "Formats embedded CSS and JavaScript",
         "Proper indentation and structure",
         "All processing happens in your browser"
       ]}
@@ -96,7 +91,7 @@ const HTMLFormatter = () => {
           />
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
           <Button onClick={formatHTML} className="flex-1">
             <Wand2 className="w-4 h-4 mr-2" />
             Beautify
@@ -104,6 +99,17 @@ const HTMLFormatter = () => {
           <Button onClick={minifyHTML} variant="outline" className="flex-1">
             Minify
           </Button>
+          <div className="flex items-center gap-2">
+            <label className="text-sm">Indent:</label>
+            <select 
+              value={indentSize} 
+              onChange={(e) => setIndentSize(Number(e.target.value))}
+              className="border rounded px-2 py-1 text-sm"
+            >
+              <option value={2}>2 spaces</option>
+              <option value={4}>4 spaces</option>
+            </select>
+          </div>
         </div>
 
         {output && (

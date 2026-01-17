@@ -58,6 +58,7 @@
     "pdf-lib": "^1.17.1",
     "pdf2docx-wasm": "^0.1.0",
     "pdfjs-dist": "^5.4.449",
+    "prettier": "^3.8.0",
     "qrcode": "^1.5.4",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
