@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://cdn.ampproject.org https://unpkg.com https://ep2.adtrafficquality.google https://cdn.jsdelivr.net; connect-src 'self' blob: https: http:; img-src 'self' data: https: blob:; worker-src 'self' blob:;" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://www.googletagmanager.com https://pagead2.googlesyndication.com https://cdn.ampproject.org https://unpkg.com https://ep2.adtrafficquality.google https://cdn.jsdelivr.net; connect-src 'self' blob: https: http:; img-src 'self' data: https: blob:; worker-src 'self' blob:;" />
 
-    <!-- DNS Prefetch & Preconnect -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
     <!-- Favicon -->
@@ -42,6 +42,52 @@
     <meta name="google-site-verification" content="h7vaAGhxsDt19dF-c4xIt4SeRjDYcLbZYcmkZES5YSM" />
 
     <meta name="google-adsense-account" content="ca-pub-3563158757486902">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17777628571">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17777628571');
+    </script>
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+      gtag('event', 'page_view', {});
+    </script>
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+      gtag('event', 'scroll', {});
+    </script>
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+      gtag('event', 'user_engagement', {});
+    </script>
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+      gtag('event', 'session_start', {});
+    </script>
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+      gtag('event', 'first_visit', {});
+    </script>
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+      gtag('event', 'form_start', {});
+    </script>
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+      gtag('event', 'click', {});
+    </script>
 
     <!-- JSON-LD: Organization Schema -->
     <script type="application/ld+json">
@@ -112,14 +158,26 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
       setTimeout(function(){
-        var f=document.createElement('link');f.rel='stylesheet';f.href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';document.head.appendChild(f);
-        var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=AW-17777628571';document.head.appendChild(g);
-        var h=document.createElement('script');h.async=true;h.src='https://www.googletagmanager.com/gtag/js?id=G-T4X81RD9WF';document.head.appendChild(h);
-        gtag('js',new Date());gtag('config','AW-17777628571');gtag('config','G-T4X81RD9WF');
-        gtag('event','page_view',{});gtag('event','session_start',{});
-        var a=document.createElement('script');a.async=true;a.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3563158757486902';a.crossOrigin='anonymous';document.head.appendChild(a);
+        var f=document.createElement('link');
+        f.rel='stylesheet';
+        f.href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+        document.head.appendChild(f);
+        
+        var g=document.createElement('script');
+        g.async=true;
+        g.src='https://www.googletagmanager.com/gtag/js?id=G-T4X81RD9WF';
+        document.head.appendChild(g);
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js',new Date());
+        gtag('config','G-T4X81RD9WF');
+        
+        var a=document.createElement('script');
+        a.async=true;
+        a.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3563158757486902';
+        a.crossOrigin='anonymous';
+        document.head.appendChild(a);
       },3000);
     </script>
   </body>
