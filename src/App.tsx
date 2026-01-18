@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect, lazy } from "react";
+import { useEffect, lazy, Suspense } from "react";
 
 const Index = lazy(() => import("./pages/Index"));
 const AllTools = lazy(() => import("./pages/AllTools"));
@@ -69,6 +69,8 @@ const WebsiteWordCounter = lazy(() => import("./pages/tools/WebsiteWordCounter")
 
 const queryClient = new QueryClient();
 
+const Loading = () => <div style={{minHeight:'100vh'}}></div>;
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -84,7 +86,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
+        <Suspense fallback={<Loading />}>
+          <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tools" element={<AllTools />} />
           <Route path="/feedback" element={<Feedback />} />
@@ -164,6 +167,7 @@ const App = () => (
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
