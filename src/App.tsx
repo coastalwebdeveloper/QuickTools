@@ -3,70 +3,69 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import Index from "./pages/Index";
-import AllTools from "./pages/AllTools";
-import Feedback from "./pages/Feedback";
-import NotFound from "./pages/NotFound";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import Blog from "./pages/Blog";
-import PdfBestPractices from "./pages/blog/PdfBestPractices";
-import ImageOptimization from "./pages/blog/ImageOptimization";
-import FinancialCalculators from "./pages/blog/FinancialCalculators";
-import TextProductivity from "./pages/blog/TextProductivity";
-import AllToolsGuide from "./pages/blog/AllToolsGuide";
-import PDFToWordGuide from "./pages/blog/PDFToWordGuide";
-import PDFCompressorGuide from "./pages/blog/PDFCompressorGuide";
-import BackgroundRemoverGuide from "./pages/blog/BackgroundRemoverGuide";
-import URLShortenerGuide from "./pages/blog/URLShortenerGuide";
-import OCRPDFGuide from "./pages/blog/OCRPDFGuide";
-import ImageCompressorGuide from "./pages/blog/ImageCompressorGuide";
-import PDFToExcelGuide from "./pages/blog/PDFToExcelGuide";
-import WebPConverterGuide from "./pages/blog/WebPConverterGuide";
-import { WordCounterGuide, QRGeneratorGuide, PasswordGeneratorGuide, BMICalculatorGuide } from "./pages/blog/ToolGuides";
+import { useEffect, lazy } from "react";
 
-// Tool Pages
-import WordCounter from "./pages/tools/WordCounter";
-import PasswordGenerator from "./pages/tools/PasswordGenerator";
-import QRGenerator from "./pages/tools/QRGenerator";
-import ColorConverter from "./pages/tools/ColorConverter";
-import BMICalculator from "./pages/tools/BMICalculator";
-import UnitConverter from "./pages/tools/UnitConverter";
-import Stopwatch from "./pages/tools/Stopwatch";
-import RandomNumber from "./pages/tools/RandomNumber";
-import CaseConverter from "./pages/tools/CaseConverter";
-import TextCleaner from "./pages/tools/TextCleaner";
-import AgeCalculator from "./pages/tools/AgeCalculator";
-import EMICalculator from "./pages/tools/EMICalculator";
-import TipCalculator from "./pages/tools/TipCalculator";
-import PDFMerge from "./pages/tools/PDFMerge";
-import PDFSplit from "./pages/tools/PDFSplit";
-import ImageCompressor from "./pages/tools/ImageCompressor";
-import ImageResizer from "./pages/tools/ImageResizer";
-import ImageCropper from "./pages/tools/ImageCropper";
-import Base64Tool from "./pages/tools/Base64Tool";
-import TextDiff from "./pages/tools/TextDiff";
-import PDFToImages from "./pages/tools/PDFToImages";
-import PDFToWord from "./pages/tools/PDFToWord";
-import PDFCompressor from "./pages/tools/PDFCompressor";
-import PDFToExcel from "./pages/tools/PDFToExcel";
-import OCRPDF from "./pages/tools/OCRPDF";
-import ImageBackgroundRemover from "./pages/tools/ImageBackgroundRemover";
-import ImageToWebP from "./pages/tools/ImageToWebP";
-import URLShortener from "./pages/tools/URLShortener";
-import PDFToPPT from "./pages/tools/PDFToPPT";
-import WordToPDF from "./pages/tools/WordToPDF";
-import ImageToPDF from "./pages/tools/ImageToPDF";
-import RemovePDFPassword from "./pages/tools/RemovePDFPassword";
-import ImageToText from "./pages/tools/ImageToText";
-import YoutubeThumbnailDownloader from "./pages/tools/YoutubeThumbnailDownloader";
-import HTMLFormatter from "./pages/tools/HTMLFormatter";
-import JSONToCSV from "./pages/tools/JSONToCSV";
-import MetaTagGenerator from "./pages/tools/MetaTagGenerator";
-import WebsiteWordCounter from "./pages/tools/WebsiteWordCounter";
+const Index = lazy(() => import("./pages/Index"));
+const AllTools = lazy(() => import("./pages/AllTools"));
+const Feedback = lazy(() => import("./pages/Feedback"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Blog = lazy(() => import("./pages/Blog"));
+const PdfBestPractices = lazy(() => import("./pages/blog/PdfBestPractices"));
+const ImageOptimization = lazy(() => import("./pages/blog/ImageOptimization"));
+const FinancialCalculators = lazy(() => import("./pages/blog/FinancialCalculators"));
+const TextProductivity = lazy(() => import("./pages/blog/TextProductivity"));
+const AllToolsGuide = lazy(() => import("./pages/blog/AllToolsGuide"));
+const PDFToWordGuide = lazy(() => import("./pages/blog/PDFToWordGuide"));
+const PDFCompressorGuide = lazy(() => import("./pages/blog/PDFCompressorGuide"));
+const BackgroundRemoverGuide = lazy(() => import("./pages/blog/BackgroundRemoverGuide"));
+const URLShortenerGuide = lazy(() => import("./pages/blog/URLShortenerGuide"));
+const OCRPDFGuide = lazy(() => import("./pages/blog/OCRPDFGuide"));
+const ImageCompressorGuide = lazy(() => import("./pages/blog/ImageCompressorGuide"));
+const PDFToExcelGuide = lazy(() => import("./pages/blog/PDFToExcelGuide"));
+const WebPConverterGuide = lazy(() => import("./pages/blog/WebPConverterGuide"));
+const ToolGuides = lazy(() => import("./pages/blog/ToolGuides"));
+const WordCounter = lazy(() => import("./pages/tools/WordCounter"));
+const PasswordGenerator = lazy(() => import("./pages/tools/PasswordGenerator"));
+const QRGenerator = lazy(() => import("./pages/tools/QRGenerator"));
+const ColorConverter = lazy(() => import("./pages/tools/ColorConverter"));
+const BMICalculator = lazy(() => import("./pages/tools/BMICalculator"));
+const UnitConverter = lazy(() => import("./pages/tools/UnitConverter"));
+const Stopwatch = lazy(() => import("./pages/tools/Stopwatch"));
+const RandomNumber = lazy(() => import("./pages/tools/RandomNumber"));
+const CaseConverter = lazy(() => import("./pages/tools/CaseConverter"));
+const TextCleaner = lazy(() => import("./pages/tools/TextCleaner"));
+const AgeCalculator = lazy(() => import("./pages/tools/AgeCalculator"));
+const EMICalculator = lazy(() => import("./pages/tools/EMICalculator"));
+const TipCalculator = lazy(() => import("./pages/tools/TipCalculator"));
+const PDFMerge = lazy(() => import("./pages/tools/PDFMerge"));
+const PDFSplit = lazy(() => import("./pages/tools/PDFSplit"));
+const ImageCompressor = lazy(() => import("./pages/tools/ImageCompressor"));
+const ImageResizer = lazy(() => import("./pages/tools/ImageResizer"));
+const ImageCropper = lazy(() => import("./pages/tools/ImageCropper"));
+const Base64Tool = lazy(() => import("./pages/tools/Base64Tool"));
+const TextDiff = lazy(() => import("./pages/tools/TextDiff"));
+const PDFToImages = lazy(() => import("./pages/tools/PDFToImages"));
+const PDFToWord = lazy(() => import("./pages/tools/PDFToWord"));
+const PDFCompressor = lazy(() => import("./pages/tools/PDFCompressor"));
+const PDFToExcel = lazy(() => import("./pages/tools/PDFToExcel"));
+const OCRPDF = lazy(() => import("./pages/tools/OCRPDF"));
+const ImageBackgroundRemover = lazy(() => import("./pages/tools/ImageBackgroundRemover"));
+const ImageToWebP = lazy(() => import("./pages/tools/ImageToWebP"));
+const URLShortener = lazy(() => import("./pages/tools/URLShortener"));
+const PDFToPPT = lazy(() => import("./pages/tools/PDFToPPT"));
+const WordToPDF = lazy(() => import("./pages/tools/WordToPDF"));
+const ImageToPDF = lazy(() => import("./pages/tools/ImageToPDF"));
+const RemovePDFPassword = lazy(() => import("./pages/tools/RemovePDFPassword"));
+const ImageToText = lazy(() => import("./pages/tools/ImageToText"));
+const YoutubeThumbnailDownloader = lazy(() => import("./pages/tools/YoutubeThumbnailDownloader"));
+const HTMLFormatter = lazy(() => import("./pages/tools/HTMLFormatter"));
+const JSONToCSV = lazy(() => import("./pages/tools/JSONToCSV"));
+const MetaTagGenerator = lazy(() => import("./pages/tools/MetaTagGenerator"));
+const WebsiteWordCounter = lazy(() => import("./pages/tools/WebsiteWordCounter"));
 
 const queryClient = new QueryClient();
 
@@ -107,10 +106,10 @@ const App = () => (
           <Route path="/blog/image-compressor-guide" element={<ImageCompressorGuide />} />
           <Route path="/blog/pdf-to-excel-guide" element={<PDFToExcelGuide />} />
           <Route path="/blog/webp-converter-guide" element={<WebPConverterGuide />} />
-          <Route path="/blog/word-counter-guide" element={<WordCounterGuide />} />
-          <Route path="/blog/qr-generator-guide" element={<QRGeneratorGuide />} />
-          <Route path="/blog/password-generator-guide" element={<PasswordGeneratorGuide />} />
-          <Route path="/blog/bmi-calculator-guide" element={<BMICalculatorGuide />} />
+          <Route path="/blog/word-counter-guide" element={<ToolGuides />} />
+          <Route path="/blog/qr-generator-guide" element={<ToolGuides />} />
+          <Route path="/blog/password-generator-guide" element={<ToolGuides />} />
+          <Route path="/blog/bmi-calculator-guide" element={<ToolGuides />} />
           
           {/* Text Tools */}
           <Route path="/tools/word-counter" element={<WordCounter />} />
