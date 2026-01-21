@@ -76,6 +76,14 @@ const About = () => {
             <li>Open-source and transparent</li>
           </ul>
 
+          <h2 className="text-2xl font-bold mt-8 mb-4">Who Runs QuickTools Online?</h2>
+          <p>
+            QuickTools Online is developed and maintained by a team of web developers and privacy advocates who believe essential digital tools should be accessible to everyone. Founded in 2024, our mission is to provide professional-grade utilities without the barriers of cost, registration, or privacy concerns.
+          </p>
+          <p>
+            Our team has backgrounds in web development, cybersecurity, and user experience design. We've experienced firsthand the frustration of needing a simple tool but being forced to upload sensitive files to unknown servers, create yet another account, or pay for a subscription. QuickTools was born from the desire to solve these problems.
+          </p>
+
           <h2 className="text-2xl font-bold mt-8 mb-4">Our Commitment</h2>
           <p>
             We are committed to maintaining QuickTools Online as a free, privacy-focused platform. We believe essential digital tools should be accessible to everyone without barriers. Your trust and privacy are our top priorities.

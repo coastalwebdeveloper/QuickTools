@@ -26,6 +26,9 @@ import OCRPDFGuide from "./pages/blog/OCRPDFGuide";
 import ImageCompressorGuide from "./pages/blog/ImageCompressorGuide";
 import PDFToExcelGuide from "./pages/blog/PDFToExcelGuide";
 import WebPConverterGuide from "./pages/blog/WebPConverterGuide";
+import ContentCreationTools from "./pages/blog/ContentCreationTools";
+import ProductivityToolsStudents from "./pages/blog/ProductivityToolsStudents";
+import WebDevelopmentTools from "./pages/blog/WebDevelopmentTools";
 import { WordCounterGuide, QRGeneratorGuide, PasswordGeneratorGuide, BMICalculatorGuide } from "./pages/blog/ToolGuides";
 
 // Tool Pages
@@ -107,6 +110,9 @@ const App = () => (
           <Route path="/blog/image-compressor-guide" element={<ImageCompressorGuide />} />
           <Route path="/blog/pdf-to-excel-guide" element={<PDFToExcelGuide />} />
           <Route path="/blog/webp-converter-guide" element={<WebPConverterGuide />} />
+          <Route path="/blog/content-creation-tools" element={<ContentCreationTools />} />
+          <Route path="/blog/productivity-tools-students" element={<ProductivityToolsStudents />} />
+          <Route path="/blog/web-development-tools" element={<WebDevelopmentTools />} />
           <Route path="/blog/word-counter-guide" element={<WordCounterGuide />} />
           <Route path="/blog/qr-generator-guide" element={<QRGeneratorGuide />} />
           <Route path="/blog/password-generator-guide" element={<PasswordGeneratorGuide />} />
