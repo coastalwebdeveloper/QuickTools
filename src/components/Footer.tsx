@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Zap, Shield, Twitter, Github, ArrowRight, Heart, Mail, ExternalLink } from "lucide-react";
+import { Shield, Twitter, Github, ArrowRight, Heart, Mail, ExternalLink } from "lucide-react";
 
 const footerTools = [
   { name: "PDF to Word", path: "/tools/pdf-to-word" },
@@ -46,9 +46,11 @@ const Footer = () => {
           {/* Brand Column (2 cols on lg) */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2.5 mb-5 group">
-              <div className="w-9 h-9 rounded-xl gradient-bg flex items-center justify-center shadow-brand group-hover:shadow-brand-lg transition-shadow">
-                <Zap className="w-5 h-5 text-white" fill="white" />
-              </div>
+              <img
+                src="/QuickTools_Logo.png"
+                alt="QuickTools Logo"
+                className="w-9 h-9 rounded-xl object-contain shadow-brand group-hover:shadow-brand-lg transition-shadow"
+              />
               <span className="font-display font-bold text-xl">
                 <span className="text-white">Quick</span>
                 <span className="gradient-text">Tools</span>
@@ -203,9 +205,9 @@ const Footer = () => {
         </div>
 
         {/* Namma Designs Credit */}
-        <div className="mt-6 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-center gap-2">
-          <p className="text-xs text-gray-600 flex items-center gap-1.5">
-            Powered by
+        <div className="mt-6 pt-6 border-t border-white/5 flex flex-col items-center justify-center gap-1 text-center">
+          <p className="text-xs text-gray-500 flex items-center gap-1.5 flex-wrap justify-center">
+            <span>Powered by</span>
             <a
               href="https://www.nammadesigns.site/"
               target="_blank"
@@ -215,7 +217,9 @@ const Footer = () => {
               Namma Designs
               <ExternalLink className="w-3 h-3" />
             </a>
-            &mdash; Designed &amp; Developed by
+          </p>
+          <p className="text-xs text-gray-600 flex items-center gap-1.5 flex-wrap justify-center">
+            <span>Designed &amp; Developed by</span>
             <a
               href="https://www.nammadesigns.site/"
               target="_blank"

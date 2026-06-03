@@ -157,7 +157,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden hero-bg">
+    <section className="relative hero-bg">
       {/* ── Layered Background ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         {/* Animated orbs */}
@@ -232,7 +232,7 @@ const HeroSection = () => {
 
           {/* ── Search Bar ── */}
           <div className={cn(
-            "relative max-w-2xl mx-auto mb-8 transition-all duration-700 delay-300",
+            "relative max-w-2xl mx-auto mb-8 transition-all duration-700 delay-300 z-50",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           )}>
             <div className={cn(

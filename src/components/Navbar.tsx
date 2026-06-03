@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Moon, Sun, Menu, X, Search, Zap, ChevronDown, ArrowRight, FileText, Image, Calculator, Type, RefreshCw, Shuffle } from "lucide-react";
+import { Moon, Sun, Menu, X, Search, ChevronDown, ArrowRight, FileText, Image, Calculator, Type, RefreshCw, Shuffle, Zap } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { searchTools } from "@/lib/toolsData";
@@ -150,11 +150,11 @@ const Navbar = () => {
 
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-              <div className="relative">
-                <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center shadow-brand group-hover:shadow-brand-lg transition-shadow">
-                  <Zap className="w-4.5 h-4.5 text-white" fill="white" />
-                </div>
-              </div>
+              <img
+                src="/QuickTools_Logo.png"
+                alt="QuickTools Logo"
+                className="w-8 h-8 rounded-lg object-contain shadow-brand group-hover:shadow-brand-lg transition-shadow"
+              />
               <span className="font-display font-bold text-xl tracking-tight">
                 <span className="text-foreground">Quick</span>
                 <span className="gradient-text">Tools</span>
@@ -449,7 +449,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
               className="flex items-center justify-center gap-2 py-4 rounded-2xl gradient-bg text-white font-semibold shadow-brand"
             >
-              <Zap className="w-4 h-4" fill="white" />
+              <img src="/QuickTools_Logo.png" alt="" className="w-5 h-5 rounded object-contain brightness-0 invert" />
               Explore All Tools
             </Link>
           </div>

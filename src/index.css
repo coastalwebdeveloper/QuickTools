@@ -900,6 +900,53 @@
     border-color: rgba(91,92,240,0.8);
     box-shadow: 0 0 0 3px rgba(91,92,240,0.2), 0 0 30px rgba(91,92,240,0.15);
   }
+
+  /* input-modern — used across tool pages, maps to input-premium style */
+  .input-modern {
+    background: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+    border-radius: 0.875rem;
+    color: hsl(var(--foreground));
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9rem;
+    outline: none;
+    width: 100%;
+  }
+
+  .input-modern:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px rgba(91,92,240,0.15), 0 0 20px rgba(91,92,240,0.08);
+    background: hsl(var(--card));
+  }
+
+  .input-modern:hover:not(:focus) {
+    border-color: rgba(91,92,240,0.35);
+  }
+
+  .input-modern::placeholder {
+    color: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  .dark .input-modern {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(255,255,255,0.1);
+    color: hsl(var(--foreground));
+  }
+
+  .dark .input-modern:hover:not(:focus) {
+    border-color: rgba(91,92,240,0.35);
+  }
+
+  .dark .input-modern:focus {
+    border-color: rgba(91,92,240,0.75);
+    box-shadow: 0 0 0 3px rgba(91,92,240,0.2), 0 0 24px rgba(91,92,240,0.12);
+    background: rgba(8, 15, 35, 0.85);
+  }
+
+  .dark .input-modern::placeholder {
+    color: rgba(255,255,255,0.28);
+  }
 }
 
 /* ─── KBD / Keyboard Shortcut ────────────────────────────────────────────────── */
