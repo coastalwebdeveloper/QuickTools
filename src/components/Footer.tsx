@@ -1,139 +1,230 @@
 import { Link } from "react-router-dom";
-import { Settings, Github, Twitter, Heart } from "lucide-react";
+import { Zap, Shield, Twitter, Github, ArrowRight, Heart, Mail, ExternalLink } from "lucide-react";
+
+const footerTools = [
+  { name: "PDF to Word", path: "/tools/pdf-to-word" },
+  { name: "Image Compressor", path: "/tools/image-compressor" },
+  { name: "Background Remover", path: "/tools/image-background-remover" },
+  { name: "QR Code Generator", path: "/tools/qr-generator" },
+  { name: "PDF Merge", path: "/tools/pdf-merge" },
+  { name: "Word Counter", path: "/tools/word-counter" },
+];
+
+const footerResources = [
+  { name: "All Tools", path: "/tools" },
+  { name: "Blog & Guides", path: "/blog" },
+  { name: "PDF Best Practices", path: "/blog/pdf-best-practices" },
+  { name: "Image Optimization", path: "/blog/image-optimization" },
+  { name: "All Tools Guide", path: "/blog/all-tools-guide" },
+];
+
+const footerCompany = [
+  { name: "About Us", path: "/about" },
+  { name: "Contact", path: "/contact" },
+  { name: "Privacy Policy", path: "/privacy" },
+  { name: "Terms of Service", path: "/terms" },
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src="/QuickTools_Logo.png" alt="QuickTools" className="w-10 h-10" />
-              <span className="font-bold text-2xl">
+    <footer className="relative bg-gray-950 dark:bg-[hsl(234_28%_5%)] text-white overflow-hidden">
+      {/* Glow top border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute top-0 left-1/4 right-1/4 h-8 blur-xl bg-primary/10" />
+
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-5"
+          style={{ background: "radial-gradient(circle, rgba(91,92,240,1) 0%, transparent 70%)" }} />
+        <div className="absolute top-20 right-0 w-64 h-64 rounded-full opacity-5"
+          style={{ background: "radial-gradient(circle, rgba(139,92,246,1) 0%, transparent 70%)" }} />
+      </div>
+
+      <div className="relative container mx-auto px-4 pt-16 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
+
+          {/* Brand Column (2 cols on lg) */}
+          <div className="lg:col-span-2">
+            <Link to="/" className="flex items-center gap-2.5 mb-5 group">
+              <div className="w-9 h-9 rounded-xl gradient-bg flex items-center justify-center shadow-brand group-hover:shadow-brand-lg transition-shadow">
+                <Zap className="w-5 h-5 text-white" fill="white" />
+              </div>
+              <span className="font-display font-bold text-xl">
                 <span className="text-white">Quick</span>
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Tools</span>
+                <span className="gradient-text">Tools</span>
               </span>
             </Link>
-            <p className="text-gray-300 max-w-md leading-relaxed">
-              Professional online tools for everyday tasks. Fast, secure, and completely free.
-              All processing happens in your browser - your privacy is guaranteed.
+
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs mb-6">
+              Fast, secure, browser-based tools for everyone. 34+ free professional utilities — no uploads, no sign-up, no limits.
             </p>
+
+            {/* Privacy Trust */}
+            <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-white/5 border border-white/8 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0">
+                <Shield className="w-4 h-4 text-emerald-400" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-white">100% Browser-Based Processing</p>
+                <p className="text-xs text-gray-500">Your files never leave your device</p>
+              </div>
+            </div>
+
+            {/* Newsletter */}
+            <div className="mb-6">
+              <p className="text-xs font-semibold text-gray-300 mb-2.5">Get tool updates in your inbox</p>
+              <div className="flex gap-2">
+                <div className="flex-1 flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 focus-within:border-primary/50 transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-gray-500 shrink-0" />
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    className="flex-1 bg-transparent text-sm text-white placeholder:text-gray-500 outline-none"
+                  />
+                </div>
+                <button className="px-3.5 py-2.5 rounded-xl gradient-bg text-white text-xs font-semibold shadow-brand hover:shadow-brand-lg transition-shadow shrink-0">
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-3">
+              <a
+                href="#"
+                aria-label="QuickTools on Twitter"
+                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-all"
+              >
+                <Twitter className="w-4 h-4 text-gray-400 hover:text-white" />
+              </a>
+              <a
+                href="#"
+                aria-label="QuickTools on GitHub"
+                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-all"
+              >
+                <Github className="w-4 h-4 text-gray-400 hover:text-white" />
+              </a>
+            </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Popular Tools */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Popular Tools</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/tools/word-counter"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Word Counter
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/tools/password-generator"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Password Generator
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/tools/qr-generator"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  QR Generator
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/tools/color-converter"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Color Converter
-                </Link>
-              </li>
+            <h4 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full gradient-bg inline-block" />
+              Popular Tools
+            </h4>
+            <ul className="space-y-2.5">
+              {footerTools.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.path}
+                    className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 group"
+                  >
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all text-primary" />
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full gradient-bg inline-block" />
+              Resources
+            </h4>
+            <ul className="space-y-2.5">
+              {footerResources.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.path}
+                    className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 group"
+                  >
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all text-primary" />
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Company</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/about"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/blog"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Resources & Guides
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/blog/all-tools-guide"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  All Tools Guide
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/privacy"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/terms"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Terms of Service
-                </Link>
-              </li>
+            <h4 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full gradient-bg inline-block" />
+              Company
+            </h4>
+            <ul className="space-y-2.5">
+              {footerCompany.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.path}
+                    className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 group"
+                  >
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all text-primary" />
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
+
+            {/* Free badge */}
+            <div className="mt-6 p-3 rounded-xl bg-primary/10 border border-primary/20">
+              <p className="text-xs font-bold text-primary mb-1">Always Free</p>
+              <p className="text-xs text-gray-400">No subscription. No premium tier. All 34+ tools, free forever.</p>
+            </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              © 2025 QuickTools Online. All Rights Reserved.
-            </p>
-            <div className="flex gap-6 text-sm">
-              <Link to="/privacy" className="text-gray-400 hover:text-blue-400 transition-colors">
-                Privacy
-              </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-blue-400 transition-colors">
-                Terms
-              </Link>
-              <Link to="/contact" className="text-gray-400 hover:text-blue-400 transition-colors">
-                Contact
-              </Link>
-            </div>
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-gray-500 text-xs flex items-center gap-1.5">
+            © {new Date().getFullYear()} QuickTools Online. Made with
+            <Heart className="w-3 h-3 text-red-400 fill-red-400" />
+            for the web.
+          </p>
+
+          <div className="flex flex-wrap justify-center items-center gap-4 text-xs text-gray-500">
+            <Link to="/privacy" className="hover:text-gray-300 transition-colors">Privacy</Link>
+            <span className="w-px h-3 bg-gray-700" />
+            <Link to="/terms" className="hover:text-gray-300 transition-colors">Terms</Link>
+            <span className="w-px h-3 bg-gray-700" />
+            <Link to="/contact" className="hover:text-gray-300 transition-colors">Contact</Link>
+            <span className="w-px h-3 bg-gray-700" />
+            <span className="flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              All systems operational
+            </span>
           </div>
+        </div>
+
+        {/* Namma Designs Credit */}
+        <div className="mt-6 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-center gap-2">
+          <p className="text-xs text-gray-600 flex items-center gap-1.5">
+            Powered by
+            <a
+              href="https://www.nammadesigns.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              Namma Designs
+              <ExternalLink className="w-3 h-3" />
+            </a>
+            &mdash; Designed &amp; Developed by
+            <a
+              href="https://www.nammadesigns.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              Namma Designs
+            </a>
+          </p>
         </div>
       </div>
     </footer>

@@ -28,10 +28,10 @@ const Contact = () => {
                 Send us an email and we'll get back to you within 24-48 hours.
               </p>
               <a 
-                href="mailto:coastal.webdeveloper@gmail.com" 
+                href="mailto:nammadesigns01@gmail.com" 
                 className="inline-flex items-center gap-2 text-base md:text-xl font-semibold text-primary hover:underline break-all"
               >
-                coastal.webdeveloper@gmail.com
+                nammadesigns01@gmail.com
               </a>
             </div>
           </div>

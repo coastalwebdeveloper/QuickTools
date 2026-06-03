@@ -1,14 +1,87 @@
+# QuickTools – robots.txt
+# https://www.quicktools.website
+
+# ─── General crawlers ────────────────────────────────────────────────────────
 User-agent: *
 Allow: /
+Allow: /tools/
+Allow: /blog/
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
 Allow: /favicon.ico
-Allow: /favicon-16x16.png
-Allow: /favicon-32x32.png
+Allow: /sitemap.xml
+Allow: /sitemap-tools.xml
+Allow: /sitemap-blog.xml
+Allow: /site.webmanifest
+Disallow: /feedback
+Disallow: /*.json$
+Disallow: /api/
 
-# Allow Google AdSense crawler
+# ─── Google ───────────────────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Mediapartners-Google
 Allow: /
 
 User-agent: AdsBot-Google
 Allow: /
 
+# ─── Bing ─────────────────────────────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+# ─── Other major crawlers ─────────────────────────────────────────────────────
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# ─── AI Search Engines ────────────────────────────────────────────────────────
+# Allow AI crawlers for discoverability in ChatGPT Search, Perplexity, etc.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Omgili
+Allow: /
+
+# ─── Sitemap Index ────────────────────────────────────────────────────────────
 Sitemap: https://www.quicktools.website/sitemap.xml
+Sitemap: https://www.quicktools.website/sitemap-tools.xml
+Sitemap: https://www.quicktools.website/sitemap-blog.xml

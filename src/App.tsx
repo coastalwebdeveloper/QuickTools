@@ -71,6 +71,15 @@ import JSONToCSV from "./pages/tools/JSONToCSV";
 import MetaTagGenerator from "./pages/tools/MetaTagGenerator";
 import WebsiteWordCounter from "./pages/tools/WebsiteWordCounter";
 
+// Category Landing Pages
+import PDFToolsPage from "./pages/categories/PDFToolsPage";
+import ImageToolsPage from "./pages/categories/ImageToolsPage";
+import ConverterToolsPage from "./pages/categories/ConverterToolsPage";
+import TextToolsPage from "./pages/categories/TextToolsPage";
+import CalculatorToolsPage from "./pages/categories/CalculatorToolsPage";
+import OtherToolsPage from "./pages/categories/OtherToolsPage";
+
+
 const queryClient = new QueryClient();
 
 function ScrollToTop() {
@@ -170,6 +179,15 @@ const App = () => (
           
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
+
+          {/* SEO Category Landing Pages */}
+          <Route path="/tools/pdf" element={<PDFToolsPage />} />
+          <Route path="/tools/image" element={<ImageToolsPage />} />
+          <Route path="/tools/converter" element={<ConverterToolsPage />} />
+          <Route path="/tools/text" element={<TextToolsPage />} />
+          <Route path="/tools/calculator" element={<CalculatorToolsPage />} />
+          <Route path="/tools/other" element={<OtherToolsPage />} />
+
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
