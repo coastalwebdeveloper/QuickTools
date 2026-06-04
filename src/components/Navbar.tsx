@@ -1,10 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import { Moon, Sun, Menu, X, Search, ChevronDown, ArrowRight, FileText, Image, Calculator, Type, RefreshCw, Shuffle, Zap } from "lucide-react";
+import { Moon, Sun, Menu, X, Search, ChevronDown, ArrowRight, FileText, Image, Calculator, Type, RefreshCw, Shuffle, Zap, Sparkles } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { searchTools } from "@/lib/toolsData";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import AuthButton from "@/components/AuthButton";
+import { useAuth } from "@/hooks/useAuth";
 
 const categoryGroups = [
   {
@@ -64,6 +66,7 @@ const categoryGroups = [
 ];
 
 const Navbar = () => {
+  const { isAuthenticated, login } = useAuth();
   const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
@@ -76,6 +79,15 @@ const Navbar = () => {
   const location = useLocation();
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  const handleAiToolsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!isAuthenticated) {
+      navigate('/login');
+    } else {
+      navigate('/dashboard');
+    }
+  };
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
@@ -325,14 +337,17 @@ const Navbar = () => {
                 {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </Button>
 
+              {/* Auth */}
+              <AuthButton />
+
               {/* CTA */}
-              <Link
-                to="/tools"
+              <button
+                onClick={handleAiToolsClick}
                 className="flex items-center gap-1.5 px-4 py-2 rounded-xl gradient-bg text-white text-sm font-semibold shadow-brand hover:shadow-brand-lg btn-glow transition-all duration-200"
               >
-                Explore Tools
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <Sparkles className="w-3.5 h-3.5" />
+                AI Tools
+              </button>
             </div>
 
             {/* Mobile: Theme + Hamburger */}

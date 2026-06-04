@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import AllTools from "./pages/AllTools";
 import Feedback from "./pages/Feedback";
@@ -13,6 +14,7 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Blog from "./pages/Blog";
+import Login from "./pages/Login";
 import PdfBestPractices from "./pages/blog/PdfBestPractices";
 import ImageOptimization from "./pages/blog/ImageOptimization";
 import FinancialCalculators from "./pages/blog/FinancialCalculators";
@@ -71,6 +73,19 @@ import JSONToCSV from "./pages/tools/JSONToCSV";
 import MetaTagGenerator from "./pages/tools/MetaTagGenerator";
 import WebsiteWordCounter from "./pages/tools/WebsiteWordCounter";
 
+// AI Tool Pages
+import AIRecipeGenerator from "./pages/tools/ai/AIRecipeGenerator";
+import AILetterWriter from "./pages/tools/ai/AILetterWriter";
+import AISmartCalculator from "./pages/tools/ai/AISmartCalculator";
+import AIBudgetPlanner from "./pages/tools/ai/AIBudgetPlanner";
+import AICodeExplainer from "./pages/tools/ai/AICodeExplainer";
+import AISEOGenerator from "./pages/tools/ai/AISEOGenerator";
+
+// Auth + Dashboard
+import AuthCallback from "./pages/AuthCallback";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 // Category Landing Pages
 import PDFToolsPage from "./pages/categories/PDFToolsPage";
 import ImageToolsPage from "./pages/categories/ImageToolsPage";
@@ -92,7 +107,8 @@ function ScrollToTop() {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+    <AuthProvider>
+      <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
@@ -106,6 +122,8 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/blog/pdf-best-practices" element={<PdfBestPractices />} />
           <Route path="/blog/image-optimization" element={<ImageOptimization />} />
           <Route path="/blog/financial-calculators" element={<FinancialCalculators />} />
@@ -177,6 +195,15 @@ const App = () => (
           <Route path="/tools/meta-tag-generator" element={<MetaTagGenerator />} />
           <Route path="/tools/website-word-counter" element={<WebsiteWordCounter />} />
           
+          {/* AI Tools — require authentication */}
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/tools/ai/recipe-generator" element={<ProtectedRoute><AIRecipeGenerator /></ProtectedRoute>} />
+          <Route path="/tools/ai/letter-writer" element={<ProtectedRoute><AILetterWriter /></ProtectedRoute>} />
+          <Route path="/tools/ai/smart-calculator" element={<ProtectedRoute><AISmartCalculator /></ProtectedRoute>} />
+          <Route path="/tools/ai/budget-planner" element={<ProtectedRoute><AIBudgetPlanner /></ProtectedRoute>} />
+          <Route path="/tools/ai/code-explainer" element={<ProtectedRoute><AICodeExplainer /></ProtectedRoute>} />
+          <Route path="/tools/ai/seo-generator" element={<ProtectedRoute><AISEOGenerator /></ProtectedRoute>} />
+
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
 
@@ -191,7 +218,8 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
+  </AuthProvider>
+</QueryClientProvider>
 );
 
 export default App;

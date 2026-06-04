@@ -185,9 +185,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-xs flex items-center gap-1.5">
-            © {new Date().getFullYear()} QuickTools Online. Made with
-            <Heart className="w-3 h-3 text-red-400 fill-red-400" />
-            for the web.
+            © {new Date().getFullYear()} QuickTools Online.           
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4 text-xs text-gray-500">

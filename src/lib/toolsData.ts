@@ -41,6 +41,10 @@ import {
   FileJson,
   Tags,
   Globe,
+  Sparkles,
+  PenLine,
+  SpellCheck,
+  Brain,
 } from "lucide-react";
 
 export interface Tool {
@@ -61,6 +65,7 @@ export interface Category {
 }
 
 export const categories: Category[] = [
+  { id: "ai", name: "AI Tools", icon: Sparkles, color: "from-violet-500 to-purple-600" },
   { id: "pdf", name: "PDF Tools", icon: FileText, color: "from-red-500 to-orange-500" },
   { id: "image", name: "Image Tools", icon: Image, color: "from-green-500 to-emerald-500" },
   { id: "converter", name: "Converters", icon: RefreshCw, color: "from-blue-500 to-cyan-500" },
@@ -70,6 +75,52 @@ export const categories: Category[] = [
 ];
 
 export const tools: Tool[] = [
+  // AI Tools
+  {
+    id: "ai-text-summarizer",
+    name: "AI Text Summarizer",
+    description: "Summarize any text instantly with AI-powered analysis",
+    icon: Sparkles,
+    category: "ai",
+    path: "/tools/ai/text-summarizer",
+    color: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+  },
+  {
+    id: "ai-writing-assistant",
+    name: "AI Writing Assistant",
+    description: "Rewrite, improve, expand or shorten your text with AI",
+    icon: PenLine,
+    category: "ai",
+    path: "/tools/ai/writing-assistant",
+    color: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  },
+  {
+    id: "ai-grammar-checker",
+    name: "AI Grammar Checker",
+    description: "Fix grammar, spelling, and punctuation errors with AI",
+    icon: SpellCheck,
+    category: "ai",
+    path: "/tools/ai/grammar-checker",
+    color: "bg-green-500/10 text-green-600 dark:text-green-400",
+  },
+  {
+    id: "ai-code-explainer",
+    name: "AI Code Explainer",
+    description: "Get plain-English explanations for any code snippet",
+    icon: Code2,
+    category: "ai",
+    path: "/tools/ai/code-explainer",
+    color: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
+  },
+  {
+    id: "ai-seo-generator",
+    name: "AI SEO Generator",
+    description: "Generate optimized meta tags and SEO content with AI",
+    icon: Tags,
+    category: "ai",
+    path: "/tools/ai/seo-generator",
+    color: "bg-pink-500/10 text-pink-600 dark:text-pink-400",
+  },
   // PDF Tools
   {
     id: "pdf-to-word",

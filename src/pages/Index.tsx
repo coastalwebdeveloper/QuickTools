@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -130,6 +132,17 @@ const privacyPoints = [
 
 const Index = () => {
   useScrollReveal();
+  const { isAuthenticated, login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAiToolsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!isAuthenticated) {
+      navigate('/login');
+    } else {
+      navigate('/dashboard');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -137,6 +150,50 @@ const Index = () => {
       <main>
         <HeroSection />
         <CategorySection />
+
+        {/* ── AI Tools Preview ── */}
+        <section className="py-16 md:py-24 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12 reveal">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-4">
+                <Sparkles className="w-3.5 h-3.5" />
+                New AI Features
+              </div>
+              <h2 className="font-display font-bold text-section text-foreground mb-3">
+                Supercharge your productivity with AI
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                We've added powerful AI capabilities to QuickTools. <strong className="text-primary font-semibold">Sign in with Google</strong> to access our premium AI suite and get a daily free credit limit!
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+              {[
+                { title: "AI Recipe Generator", desc: "Turn fridge leftovers into gourmet meals with instructions." },
+                { title: "AI Letter Writer", desc: "Draft perfectly toned professional or personal letters instantly." },
+                { title: "AI Smart Calculator", desc: "Get step-by-step breakdowns for complex math word problems." },
+                { title: "AI Budget Planner", desc: "Organize finances and hit saving goals with custom allocations." },
+                { title: "AI Code Explainer", desc: "Understand complex code snippets in plain English." },
+                { title: "AI SEO Generator", desc: "Generate optimized titles and meta tags for better search ranking." },
+              ].map((tool, i) => (
+                <div key={i} className="reveal bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all" style={{ transitionDelay: `${i * 60}ms` }}>
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{tool.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{tool.desc}</p>
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-10 reveal">
+              <button onClick={handleAiToolsClick} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl gradient-bg text-white font-semibold text-sm shadow-brand hover:shadow-brand-lg btn-glow transition-all">
+                Try AI Tools Now
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </section>
 
         {/* ── Why QuickTools ── */}
         <section className="py-16 md:py-24 bg-background">

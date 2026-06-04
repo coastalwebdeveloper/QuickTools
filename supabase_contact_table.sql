@@ -8,6 +8,8 @@ CREATE TABLE contact_messages (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+
+
 -- Enable Row Level Security
 ALTER TABLE contact_messages ENABLE ROW LEVEL SECURITY;
 
