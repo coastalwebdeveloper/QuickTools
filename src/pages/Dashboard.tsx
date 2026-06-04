@@ -175,13 +175,7 @@ export default function Dashboard() {
             </div>
 
 
-            <button
-              id="dashboard-logout-btn"
-              onClick={handleLogout}
-              className="absolute top-4 right-4 flex items-center gap-1.5 text-xs text-muted-foreground hover:text-destructive transition-colors px-2.5 py-1.5 rounded-lg hover:bg-destructive/8"
-            >
-              <LogOut className="w-3.5 h-3.5" /> Sign out
-            </button>
+
           </div>
 
           {/* Credit Widget Card */}
