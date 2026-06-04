@@ -274,27 +274,27 @@ const QRGenerator = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-2 w-full">
+            <div className="flex flex-col sm:flex-row gap-2 w-full">
               <Button
                 onClick={handleDownload}
                 disabled={!qrDataUrl}
-                className="flex-1 gradient-bg border-0 text-white shadow-brand hover:shadow-brand-lg btn-glow transition-all"
+                className="flex-1 w-full sm:w-auto gradient-bg border-0 text-white shadow-brand hover:shadow-brand-lg btn-glow transition-all"
               >
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="w-4 h-4 mr-2 shrink-0" />
                 Download PNG
               </Button>
               <Button
                 onClick={handleCopyImage}
                 disabled={!qrDataUrl}
                 variant="outline"
-                className="flex-1 border-2 hover:border-primary/40 hover:bg-primary/5 transition-all"
+                className="flex-1 w-full sm:w-auto border-2 hover:border-primary/40 hover:bg-primary/5 transition-all"
               >
                 {copied ? (
-                  <Check className="w-4 h-4 mr-2 text-emerald-500" />
+                  <Check className="w-4 h-4 mr-2 text-emerald-500 shrink-0" />
                 ) : (
-                  <Copy className="w-4 h-4 mr-2" />
+                  <Copy className="w-4 h-4 mr-2 shrink-0" />
                 )}
-                {copied ? "Copied!" : "Copy Image"}
+                <span className="truncate">{copied ? "Copied!" : "Copy Image"}</span>
               </Button>
             </div>
 

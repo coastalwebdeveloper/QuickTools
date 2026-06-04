@@ -145,7 +145,7 @@ export default function Dashboard() {
                   <User className="w-8 h-8 text-primary" />
                 </div>
               )}
-              <div className="min-w-0">
+              <div className="min-w-0 pr-16 sm:pr-0">
                 <h1 className="text-xl font-bold truncate">Welcome back, {user?.name?.split(' ')[0]}!</h1>
                 <p className="text-sm text-muted-foreground truncate">{user?.email}</p>
                 <div className="flex items-center gap-2 mt-2">
@@ -231,13 +231,13 @@ export default function Dashboard() {
         </div>
 
         {/* ── AI Tools Grid ── */}
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3">
           <div>
             <h2 className="text-xl font-bold">AI Tools</h2>
             <p className="text-sm text-muted-foreground mt-0.5">Each use costs 1 credit · {limit} credits per day</p>
           </div>
           {remaining === 0 && (
-            <span className="text-xs text-destructive bg-destructive/10 px-3 py-1.5 rounded-full font-medium">
+            <span className="text-xs text-destructive bg-destructive/10 px-3 py-1.5 rounded-full font-medium inline-block">
               Daily limit reached — resets in {resetIn}
             </span>
           )}
