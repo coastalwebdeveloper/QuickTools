@@ -56,11 +56,13 @@ app.use((err, req, res, next) => {
 
 // ── Start ──────────────────────────────────────────────────────────────────────
 
-app.listen(PORT, () => {
-  console.log(`\n🚀 QuickTools API running on http://localhost:${PORT}`);
-  console.log(`   Auth:    http://localhost:${PORT}/api/auth`);
-  console.log(`   AI:      http://localhost:${PORT}/api/ai`);
-  console.log(`   Health:  http://localhost:${PORT}/api/health\n`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 QuickTools API running on http://localhost:${PORT}`);
+    console.log(`   Auth:    http://localhost:${PORT}/api/auth`);
+    console.log(`   AI:      http://localhost:${PORT}/api/ai`);
+    console.log(`   Health:  http://localhost:${PORT}/api/health\n`);
+  });
+}
 
 export default app;
