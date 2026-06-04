@@ -137,26 +137,36 @@ export default function Dashboard() {
           <div className="lg:col-span-2 relative overflow-hidden rounded-2xl border border-border bg-card p-6">
             {/* Gradient blob */}
             <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-primary/10 blur-2xl pointer-events-none" />
-            <div className="flex items-center gap-4">
-              {user?.avatar ? (
-                <img src={user.avatar} alt={user.name} className="w-16 h-16 rounded-2xl object-cover ring-2 ring-primary/20 shrink-0" />
-              ) : (
-                <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center shrink-0">
-                  <User className="w-8 h-8 text-primary" />
-                </div>
-              )}
-              <div className="min-w-0 pr-16 sm:pr-0">
-                <h1 className="text-xl font-bold truncate">Welcome back, {user?.name?.split(' ')[0]}!</h1>
-                <p className="text-sm text-muted-foreground truncate">{user?.email}</p>
-                <div className="flex items-center gap-2 mt-2">
-                  <span className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium">
-                    <Shield className="w-3 h-3" /> Free Plan
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-green-500/10 text-green-500 font-medium">
-                    <Zap className="w-3 h-3" /> AI Access
-                  </span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-4 min-w-0">
+                {user?.avatar ? (
+                  <img src={user.avatar} alt={user.name} className="w-16 h-16 rounded-2xl object-cover ring-2 ring-primary/20 shrink-0" />
+                ) : (
+                  <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center shrink-0">
+                    <User className="w-8 h-8 text-primary" />
+                  </div>
+                )}
+                <div className="min-w-0">
+                  <h1 className="text-xl font-bold truncate">Welcome back, {user?.name?.split(' ')[0]}!</h1>
+                  <p className="text-sm text-muted-foreground truncate">{user?.email}</p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <span className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium">
+                      <Shield className="w-3 h-3" /> Free Plan
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-green-500/10 text-green-500 font-medium">
+                      <Zap className="w-3 h-3" /> AI Access
+                    </span>
+                  </div>
                 </div>
               </div>
+              
+              <button
+                id="dashboard-logout-btn"
+                onClick={handleLogout}
+                className="self-start sm:self-auto flex items-center gap-1.5 text-xs text-muted-foreground hover:text-destructive transition-colors px-3 py-2 rounded-lg border border-border sm:border-transparent bg-muted/20 sm:bg-transparent hover:bg-destructive/10"
+              >
+                <LogOut className="w-3.5 h-3.5" /> Sign out
+              </button>
             </div>
 
             {/* Animated Welcome Message */}
