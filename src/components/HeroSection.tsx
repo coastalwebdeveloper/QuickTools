@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { searchTools, tools } from "@/lib/toolsData";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/useAuth";
 
 const popularToolIds = [
   "youtube-thumbnail-downloader",
@@ -84,6 +85,7 @@ const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [statsActive, setStatsActive] = useState(false);
   const navigate = useNavigate();
+  const { isAuthenticated, login } = useAuth();
   const searchInputRef = useRef<HTMLInputElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const popularTools = popularToolIds.map((id) => tools.find((t) => t.id === id)).filter(Boolean);
@@ -229,6 +231,28 @@ const HeroSection = () => {
             <br className="hidden sm:block" />
             <span className="font-semibold text-foreground/80">No uploads. No sign-up. No limits.</span>
           </p>
+
+          {/* Mobile Auth / AI Tools CTA */}
+          <div className={cn(
+            "flex lg:hidden flex-col sm:flex-row items-center justify-center gap-3 mb-10 transition-all duration-700 delay-200",
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          )}>
+            <button
+              onClick={() => isAuthenticated ? navigate('/dashboard') : navigate('/login')}
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl gradient-bg text-white font-semibold shadow-brand"
+            >
+              <Sparkles className="w-4 h-4" />
+              Try AI Tools
+            </button>
+            {!isAuthenticated && (
+              <button
+                onClick={() => login()}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-primary/20 text-primary font-semibold hover:bg-primary/5"
+              >
+                Sign in with Google
+              </button>
+            )}
+          </div>
 
           {/* ── Search Bar ── */}
           <div className={cn(

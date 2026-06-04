@@ -459,14 +459,40 @@ const Navbar = () => {
             </div>
 
             {/* Mobile CTA */}
-            <Link
-              to="/tools"
-              onClick={() => setIsMenuOpen(false)}
-              className="flex items-center justify-center gap-2 py-4 rounded-2xl gradient-bg text-white font-semibold shadow-brand"
-            >
-              <img src="/QuickTools_Logo.png" alt="" className="w-5 h-5 rounded object-contain brightness-0 invert" />
-              Explore All Tools
-            </Link>
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={(e) => { setIsMenuOpen(false); handleAiToolsClick(e); }}
+                className="flex items-center justify-center gap-2 py-3.5 rounded-xl gradient-bg text-white text-sm font-semibold shadow-brand"
+              >
+                <Sparkles className="w-4 h-4" />
+                AI Tools
+              </button>
+              
+              {!isAuthenticated ? (
+                <button
+                  onClick={() => { setIsMenuOpen(false); login(); }}
+                  className="flex items-center justify-center gap-2 py-3.5 rounded-xl border-2 border-primary/20 text-primary text-sm font-semibold"
+                >
+                  Login with Google
+                </button>
+              ) : (
+                <Link
+                  to="/dashboard"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 py-3.5 rounded-xl border-2 border-primary/20 text-primary text-sm font-semibold"
+                >
+                  Dashboard
+                </Link>
+              )}
+              
+              <Link
+                to="/tools"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center justify-center gap-2 py-3.5 rounded-xl bg-muted text-foreground text-sm font-semibold hover:bg-muted/80 transition-colors"
+              >
+                Explore All Free Tools
+              </Link>
+            </div>
           </div>
         </div>
       )}
