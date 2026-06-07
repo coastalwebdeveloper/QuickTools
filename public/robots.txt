@@ -83,5 +83,6 @@ Allow: /
 
 # ─── Sitemap Index ────────────────────────────────────────────────────────────
 Sitemap: https://www.quicktools.website/sitemap.xml
+Sitemap: https://www.quicktools.website/sitemap-main.xml
 Sitemap: https://www.quicktools.website/sitemap-tools.xml
 Sitemap: https://www.quicktools.website/sitemap-blog.xml
